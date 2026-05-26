@@ -3,7 +3,7 @@ import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import GameCarousel from "./GameCarousel";
 import background from "../../assets/game_programming/background.png";
-import submarineVideo from "../../assets/Animations/Submarine/submarine-animation.mp4";
+import submarineVideo from "../../assets/Animations/Submarine/submarine_section_final.webm";
 import submarinePoster from "../../assets/Animations/Submarine/submarine.png";
 import Rive from "@rive-app/react-canvas";
 
@@ -152,7 +152,7 @@ const GameProgrammingSection = () => {
             className="w-full "
             style={{ pointerEvents: "none" }}
           >
-            <source src={submarineVideo} type="video/mp4" />
+            <source src={submarineVideo} type="video/webm" />
           </video>
         ) : (
           <img
