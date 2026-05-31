@@ -222,7 +222,7 @@ const VideoEditing = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="w-full relative overflow-hidden">
+    <div className="w-full h-[759px] md:h-auto relative overflow-hidden">
       <AnimationStyles />
       {/* Mobile: imagen estática */}
       <div
