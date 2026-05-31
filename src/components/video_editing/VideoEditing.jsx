@@ -46,29 +46,11 @@ import ae from "../../assets/video_editing/ae.png";
 import ai from "../../assets/video_editing/ai.png";
 import background from "../../assets/video_editing/background.png";
 import bubble from "../../assets/video_editing/bubble.png";
-import videoEditingMp4 from "../../assets/Animations/video-editing/Video-editing-section.mp4";
-import videoEditingPoster from "../../assets/Animations/video-editing/Video-editing-section (0-00-24-19).png";
+import videoEditingWebm from "../../assets/Animations/video-editing/Video-editing-section_final.webm";
 import CarouselModal from "./VideoProjectsCarousel";
 
 const VideoEditing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-  const [videoReady, setVideoReady] = useState(!isSafari);
-
-  useEffect(() => {
-    if (!isSafari) return;
-    const unlock = () => setVideoReady(true);
-    document.addEventListener("click", unlock, { once: true });
-    document.addEventListener("touchstart", unlock, { once: true });
-    document.addEventListener("scroll", unlock, { once: true });
-    document.addEventListener("keydown", unlock, { once: true });
-    return () => {
-      document.removeEventListener("click", unlock);
-      document.removeEventListener("touchstart", unlock);
-      document.removeEventListener("scroll", unlock);
-      document.removeEventListener("keydown", unlock);
-    };
-  }, []);
   const orbitRef = useRef(null);
   const [orbitSize, setOrbitSize] = useState({ width: 0, height: 0 });
   const [isMobile, setIsMobile] = useState(false);
@@ -250,24 +232,16 @@ const VideoEditing = () => {
 
       {/* Desktop: video animado */}
       <div className="hidden md:block">
-        {videoReady ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full"
-            style={{ pointerEvents: "none" }}
-          >
-            <source src={videoEditingMp4} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src={videoEditingPoster}
-            className="w-full block"
-            style={{ pointerEvents: "none" }}
-          />
-        )}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full"
+          style={{ pointerEvents: "none" }}
+        >
+          <source src={videoEditingWebm} type="video/webm" />
+        </video>
       </div>
 
       {/* Content */}

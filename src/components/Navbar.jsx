@@ -117,7 +117,6 @@ const Navbar = () => {
   // Direct handlers for mobile menu navigation
   const handleGameProgrammingClick = () => scrollToSection("game-programming");
   const handle3DArtClick = () => scrollToSection("3d-art");
-  const handleGraphicDesignClick = () => scrollToSection("graphic-design");
   const handleVideoEditingClick = () => scrollToSection("video-editing");
   const handleWebDesignClick = () => scrollToSection("web-design");
 
@@ -170,15 +169,7 @@ const Navbar = () => {
               >
                 3D ART
               </motion.div>
-              <motion.div
-                className="text-white hover:text-blue-200 cursor-pointer"
-                onClick={() => scrollToSection("graphic-design")}
-                variants={linkVariants}
-                whileHover={{ scale: 1.05 }}
-              >
-                Graphic Design
-              </motion.div>
-              <motion.div
+<motion.div
                 className="text-white hover:text-blue-200 cursor-pointer"
                 onClick={() => scrollToSection("video-editing")}
                 variants={linkVariants}
@@ -311,16 +302,7 @@ const Navbar = () => {
                 >
                   3D ART
                 </motion.button>
-                <motion.button
-                  className="text-white hover:text-blue-200 cursor-pointer p-2 w-full text-left"
-                  onClick={handleGraphicDesignClick}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                >
-                  Graphic Design
-                </motion.button>
-                <motion.button
+<motion.button
                   className="text-white hover:text-blue-200 cursor-pointer p-2 w-full text-left"
                   onClick={handleVideoEditingClick}
                   initial={{ opacity: 0 }}

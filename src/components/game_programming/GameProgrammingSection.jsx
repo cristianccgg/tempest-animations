@@ -248,7 +248,7 @@ const GameProgrammingSection = () => {
       {/* Additional space for mobile */}
       <div className="h-[200px] md:h-0 w-full"></div>
 
-      {/* CSS for stars - copied from GraphicDesign */}
+      {/* CSS for stars */}
       <style jsx>{`
         .stars-background {
           background-image:

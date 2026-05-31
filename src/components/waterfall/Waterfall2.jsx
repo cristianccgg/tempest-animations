@@ -96,7 +96,7 @@ const Waterfall2 = () => {
         style={{ backgroundImage: `url(${background})` }}
       ></div>
 
-      {/* Stars overlay similar to GraphicDesign */}
+      {/* Stars overlay */}
       <motion.div
         initial="hidden"
         animate="visible"

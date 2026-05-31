@@ -7,8 +7,7 @@ import tiktokIcon from "../assets/footer/tiktok.svg";
 import fiverIcon from "../assets/footer/Fiverr.png";
 import background from "../assets/footer/background.png";
 import backgroundMobile from "../assets/footer/background_mobile.png";
-import videoSrc from "../assets/Animations/footer/footer_alpha.webm";
-import videoSrcMov from "../assets/Animations/footer/footer_alpha.mov";
+import videoSrc from "../assets/Animations/footer/Footer_final.webm";
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -121,17 +120,20 @@ const Footer = () => {
   return (
     <div id="footer" className="w-full relative -mt-43">
       {/* Desktop Background */}
-      <div className="hidden md:block">
+      <div className="hidden md:block relative">
+        <div
+          className="absolute inset-0 w-full h-full bg-[length:100%_100%] bg-no-repeat"
+          style={{ backgroundImage: `url(${background})` }}
+        />
         {videoReady ? (
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full block"
+            className="w-full block relative"
             style={{ pointerEvents: "none" }}
           >
-            <source src={videoSrcMov} type="video/quicktime" />
             <source src={videoSrc} type="video/webm" />
           </video>
         ) : (

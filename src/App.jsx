@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/hero/Hero";
 import GameProgrammingSection from "./components/game_programming/GameProgrammingSection";
 import VideoEditing from "./components/video_editing/VideoEditing";
-import GraphicDesign from "./components/graphic_design/GraphicDesign";
 import Waterfall from "./components/waterfall/Waterfall";
 import Footer from "./components/Footer";
 import MidWaterfall2 from "./components/waterfall/MidWaterfall2";
@@ -32,10 +31,7 @@ function App() {
       <div id="video-editing">
         <VideoEditing />
       </div>
-      <div id="graphic-design">
-        <GraphicDesign />
-      </div>
-      <div>
+<div className="-mt-[3px]">
         <Waterfall />
       </div>
       <div id="3d-art">

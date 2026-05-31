@@ -1,28 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import background from "../../assets/waterfall/background.png";
-import waterfallMp4 from "../../assets/Animations/waterfall1/Upper-Waterfall.mp4";
+import waterfallWebm from "../../assets/Animations/waterfall1/waterfall1_final.webm";
 import waterfallPoster from "../../assets/Animations/waterfall1/waterfall1.png";
-
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 const Waterfall = () => {
   const textRef = useRef(null);
-  const [videoReady, setVideoReady] = useState(!isSafari);
-
-  useEffect(() => {
-    if (!isSafari) return;
-    const unlock = () => setVideoReady(true);
-    document.addEventListener("click", unlock, { once: true });
-    document.addEventListener("touchstart", unlock, { once: true });
-    document.addEventListener("scroll", unlock, { once: true });
-    document.addEventListener("keydown", unlock, { once: true });
-    return () => {
-      document.removeEventListener("click", unlock);
-      document.removeEventListener("touchstart", unlock);
-      document.removeEventListener("scroll", unlock);
-      document.removeEventListener("keydown", unlock);
-    };
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,24 +41,16 @@ const Waterfall = () => {
 
       {/* Desktop: video animado */}
       <div className="hidden md:block">
-        {videoReady ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full block"
-            style={{ pointerEvents: "none" }}
-          >
-            <source src={waterfallMp4} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src={waterfallPoster}
-            className="w-full block"
-            style={{ pointerEvents: "none" }}
-          />
-        )}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full block"
+          style={{ pointerEvents: "none" }}
+        >
+          <source src={waterfallWebm} type="video/webm" />
+        </video>
       </div>
 
       <div
