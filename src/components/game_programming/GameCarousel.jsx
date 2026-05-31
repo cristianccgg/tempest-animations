@@ -132,7 +132,7 @@ const GameCarousel = () => {
 
   return (
     <>
-      <div className="w-full relative overflow-hidden py-8 h-[300px] md:h-[400px] mx-auto max-w-7xl">
+      <div className="w-full relative overflow-hidden h-[300px] md:h-[200px] mx-auto max-w-7xl">
         {/* Navigation Arrows */}
         <button
           className="absolute left-4 top-1/2 transform -translate-y-1/2 z-40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-blue-500/30 active:shadow-inner"
@@ -180,13 +180,13 @@ const GameCarousel = () => {
 
             {/* Active Item - Center */}
             <div className="z-30">
-              <div className="flex items-center justify-center md:w-[530px] h-[220px]">
+              <div className="flex items-center justify-center md:w-[530px] h-[220px] md:h-[180px]">
                 {/* Element container */}
                 <div className="flex items-center justify-center backdrop-blur-3xl md:w-[279px] md:h-full w-[165px] h-[125px] bg-[#FFFFFF2D] border-4 border-[#FFFFFF47] rounded-4xl z-20 transition-all duration-300 hover:border-[#FFFFFF70] hover:shadow-lg hover:shadow-blue-400/10">
                   <img
                     src={projects[activeIndex].image}
                     alt={projects[activeIndex].title}
-                    className="md:w-[207px] md:h-[179px] w-[127px] h-[107px] object-contain image-pulse"
+                    className="md:w-[207px] md:h-[174px] w-[127px] h-[107px] object-contain image-pulse"
                   />
                 </div>
                 {/* Info container */}
@@ -261,20 +261,6 @@ const GameCarousel = () => {
           </div>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {projects.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 hover:scale-125 active:scale-75 ${
-                index === activeIndex
-                  ? "bg-blue-500 hover:bg-blue-600 active:bg-blue-700"
-                  : "bg-blue-300 hover:bg-blue-400 active:bg-blue-500 hover:shadow hover:shadow-blue-400/30"
-              }`}
-            ></button>
-          ))}
-        </div>
       </div>
 
       {showVideosModal && (

@@ -196,25 +196,23 @@ const GameProgrammingSection = () => {
           animate={titleControls}
           variants={titleVariant}
           className="font-orbitron font-black text-white text-[26.53px] text-center md:text-start md:ms-[48px]
-          [text-shadow:_3px_6px_4px_rgba(52,140,240,1)] drop-shadow-xl pt-[46px]"
+          [text-shadow:_3px_6px_4px_rgba(52,140,240,1)] drop-shadow-xl pt-[46px] md:pt-0 md:absolute md:bottom-[752px] md:h-[100px]"
         >
           Game Programming
         </motion.h1>
 
-        <div className="w-full relative">
-          <motion.div
-            ref={descriptionRef}
-            initial="hidden"
-            animate={descriptionControls}
-            variants={descriptionVariant}
-            className="w-[340px] md:w-[681px] h-[102px] absolute right-0 md:right-[48px] mt-[43px]"
-          >
-            <h2 className="text-[16px] h-full flex items-center text-white font-rajdhani backdrop-blur-3xl p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-full rounded-l-full">
-              Discover my game dev projects developed in Unity, showcasing my
-              skills in game design and programming.
-            </h2>
-          </motion.div>
-        </div>
+        <motion.div
+          ref={descriptionRef}
+          initial="hidden"
+          animate={descriptionControls}
+          variants={descriptionVariant}
+          className="w-[340px] md:w-[681px] h-[102px] absolute right-0 md:right-[48px] top-[102px] md:top-auto md:bottom-[650px]"
+        >
+          <h2 className="text-[16px] h-full flex items-center text-white font-rajdhani backdrop-blur-3xl p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-full rounded-l-full">
+            Discover my game dev projects developed in Unity, showcasing my
+            skills in game design and programming.
+          </h2>
+        </motion.div>
 
         {/* Carousel with animation */}
         <motion.div
@@ -222,7 +220,7 @@ const GameProgrammingSection = () => {
           initial="hidden"
           animate={carouselControls}
           variants={carouselVariant}
-          className="relative top-[350px] md:top-[180px] w-full flex justify-center"
+          className="absolute bottom-[366px] md:bottom-[366px] w-full flex justify-center"
         >
           <div className="w-full max-w-[1200px]">
             <GameCarousel />

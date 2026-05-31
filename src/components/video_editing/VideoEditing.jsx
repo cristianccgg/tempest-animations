@@ -257,21 +257,19 @@ const VideoEditing = () => {
           Video Editing & <br className="md:hidden" /> Post-production
         </motion.h1>
 
-        <div className="relative">
-          <motion.div
-            ref={bubbleViewRef}
-            initial="hidden"
-            animate={bubbleControls}
-            variants={bubbleVariant}
-            className="absolute right-10 md:right-105 flex items-center justify-center mt-[43px] bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer"
-            style={{ backgroundImage: `url(${bubble})` }}
-          >
-            <h2 className="text-[7px] md:text-[14px] md:w-52 text-center w-20 text-white font-orbitron leading-[1.5]">
-              Explore my video editing and post-production portfolio using Adobe
-              Creative Suite, with experience in animation and VFX.
-            </h2>
-          </motion.div>
-        </div>
+        <motion.div
+          ref={bubbleViewRef}
+          initial="hidden"
+          animate={bubbleControls}
+          variants={bubbleVariant}
+          className="absolute right-10 top-[90px] md:top-auto md:right-auto md:left-[7.6%] md:bottom-[51.8%] flex items-center justify-center bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer"
+          style={{ backgroundImage: `url(${bubble})` }}
+        >
+          <h2 className="text-[7px] md:text-[14px] md:w-52 text-center w-20 text-white font-orbitron leading-[1.5]">
+            Explore my video editing and post-production portfolio using Adobe
+            Creative Suite, with experience in animation and VFX.
+          </h2>
+        </motion.div>
 
         <div className="absolute top-[350px] md:top-25 right-1/2 md:right-5 transform translate-x-1/2 md:translate-x-0 rocket-container">
           <div
