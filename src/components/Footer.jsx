@@ -119,6 +119,12 @@ const Footer = () => {
 
   return (
     <div id="footer" className="w-full h-[400px] md:h-auto md:-mt-43 relative">
+      {/* Mobile Background */}
+      <div
+        className="md:hidden absolute w-full h-full bg-[length:125%_100%] bg-no-repeat"
+        style={{ backgroundImage: `url(${background})` }}
+      ></div>
+
       {/* Desktop Background */}
       <div className="hidden md:block relative">
         <div
@@ -143,11 +149,6 @@ const Footer = () => {
           />
         )}
       </div>
-      {/* Mobile Background */}
-      <div
-        className="md:hidden w-full h-[400px] bg-[length:125%_100%] bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundMobile})` }}
-      ></div>
 
       <div className="absolute inset-0 z-10">
         <div className="pt-[15px] ps-[17px] md:pt-20">
