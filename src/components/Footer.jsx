@@ -118,7 +118,7 @@ const Footer = () => {
   };
 
   return (
-    <div id="footer" className="w-full relative -mt-43">
+    <div id="footer" className="w-full h-[400px] md:h-auto md:-mt-43 relative">
       {/* Desktop Background */}
       <div className="hidden md:block relative">
         <div
