@@ -6,7 +6,8 @@
       "Bash(git stash *)",
       "Bash(ffmpeg -i \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos.mov\" -c:v hevc_videotoolbox -allow_sw 1 -alpha_quality 0.75 -tag:v hvc1 \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2_final_hevc.mov\" -y)",
       "Bash(ffmpeg -i \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos.mov\" -c:v hevc_videotoolbox -allow_sw 1 -alpha_quality 0.75 -tag:v hvc1 \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos-hevc.mov\" -y)",
-      "Bash(ffmpeg -i \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos.mov\" -c:v hevc_videotoolbox -allow_sw 1 -alpha_quality 1.0 -tag:v hvc1 \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos-hevc.mov\" -y)"
+      "Bash(ffmpeg -i \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos.mov\" -c:v hevc_videotoolbox -allow_sw 1 -alpha_quality 1.0 -tag:v hvc1 \"/Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall2/waterfall2-prueba-fondos-hevc.mov\" -y)",
+      "Bash(git commit *)"
     ]
   }
 }
