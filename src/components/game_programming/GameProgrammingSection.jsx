@@ -1,12 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import GameCarousel from "./GameCarousel";
 import background from "../../assets/game_programming/background.png";
 import submarineVideo from "../../assets/Animations/Submarine/submarine_section_final.webm";
 import submarinePoster from "../../assets/Animations/Submarine/submarine.png";
+import Rive from "@rive-app/react-canvas";
+
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 const GameProgrammingSection = () => {
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   const [videoReady, setVideoReady] = useState(!isSafari);
+
+  const titleControls = useAnimation();
+  const descriptionControls = useAnimation();
+  const carouselControls = useAnimation();
+  const riveAnimationControls = useAnimation();
+
+  const [titleRef, titleInView] = useInView({ triggerOnce: false, threshold: 0.1 });
+  const [descriptionRef, descriptionInView] = useInView({ triggerOnce: false, threshold: 0.1 });
+  const [carouselRef, carouselInView] = useInView({ triggerOnce: false, threshold: 0.1 });
+  const [riveRef, riveInView] = useInView({ triggerOnce: false, threshold: 0.1 });
+
+  useEffect(() => {
+    if (titleInView) titleControls.start("visible");
+  }, [titleInView, titleControls]);
+
+  useEffect(() => {
+    if (descriptionInView) descriptionControls.start("visible");
+  }, [descriptionInView, descriptionControls]);
+
+  useEffect(() => {
+    if (carouselInView) carouselControls.start("visible");
+  }, [carouselInView, carouselControls]);
+
+  useEffect(() => {
+    if (riveInView) riveAnimationControls.start("visible");
+  }, [riveInView, riveAnimationControls]);
 
   useEffect(() => {
     if (!isSafari) return;
@@ -23,10 +53,30 @@ const GameProgrammingSection = () => {
     };
   }, []);
 
+  const titleVariant = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeOut" } },
+  };
+
+  const descriptionVariant = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.2, delay: 0.1, ease: "easeOut" } },
+  };
+
+  const carouselVariant = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.4, delay: 0.8, ease: "easeOut" } },
+  };
+
+  const riveVariant = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 1.2, ease: "easeOut" } },
+  };
+
   return (
     <div
       id="game-programming-section"
-      className="w-full md:h-[1260px] min-h-[822px] relative overflow-hidden"
+      className="w-full h-[822px] md:h-auto relative overflow-hidden"
     >
       {/* Mobile: imagen estática */}
       <div
@@ -37,22 +87,11 @@ const GameProgrammingSection = () => {
       {/* Desktop: video animado */}
       <div className="hidden md:block">
         {videoReady ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full"
-            style={{ pointerEvents: "none" }}
-          >
+          <video autoPlay loop muted playsInline className="w-full block" style={{ pointerEvents: "none" }}>
             <source src={submarineVideo} type="video/webm" />
           </video>
         ) : (
-          <img
-            src={submarinePoster}
-            className="w-full block"
-            style={{ pointerEvents: "none" }}
-          />
+          <img src={submarinePoster} className="w-full block" style={{ pointerEvents: "none" }} />
         )}
       </div>
 
@@ -68,8 +107,57 @@ const GameProgrammingSection = () => {
         transition={{ duration: 5, ease: "easeInOut", repeat: Infinity, delay: 1 }}
       />
 
+      {/* Contenido */}
+      <div className="absolute inset-0 z-10 w-full">
+        <motion.h1
+          ref={titleRef}
+          initial="hidden"
+          animate={titleControls}
+          variants={titleVariant}
+          className="font-orbitron font-black text-white text-[26.53px] text-center md:text-start md:ms-[48px] [text-shadow:_3px_6px_4px_rgba(52,140,240,1)] drop-shadow-xl pt-[46px]"
+        >
+          Game Programming
+        </motion.h1>
+
+        <div className="w-full relative">
+          <motion.div
+            ref={descriptionRef}
+            initial="hidden"
+            animate={descriptionControls}
+            variants={descriptionVariant}
+            className="w-[340px] md:w-[681px] h-[102px] absolute right-0 md:right-[48px] mt-[43px]"
+          >
+            <h2 className="text-[16px] h-full flex items-center text-white font-rajdhani backdrop-blur-3xl p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-full rounded-l-full">
+              Discover my game dev projects developed in Unity, showcasing my skills in game design and programming.
+            </h2>
+          </motion.div>
+        </div>
+
+        <motion.div
+          ref={carouselRef}
+          initial="hidden"
+          animate={carouselControls}
+          variants={carouselVariant}
+          className="relative top-[350px] md:top-[180px] w-full flex justify-center"
+        >
+          <div className="w-full max-w-[1200px]">
+            <GameCarousel />
+          </div>
+        </motion.div>
+
+        <motion.div
+          ref={riveRef}
+          initial="hidden"
+          animate={riveAnimationControls}
+          variants={riveVariant}
+          className="absolute -bottom-80 left-0 md:left-50 w-[300px] h-[300px] z-20"
+        >
+          <Rive src="/animations/untitled.riv" animations="Timeline 1" autoPlay={true} />
+        </motion.div>
+      </div>
+
       {/* Additional space for mobile */}
-      <div className="h-[200px] md:h-0 w-full"></div>
+      <div className="h-[200px] md:h-0 w-full" />
 
       <style jsx>{`
         .stars-background {

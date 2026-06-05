@@ -19,20 +19,23 @@ const Footer = () => {
   const copyrightControls = useAnimation();
 
   const [titleRef, titleInView] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [titleMobileRef, titleMobileInView] = useInView({ triggerOnce: false, threshold: 0.2 });
   const [socialIconsRef, socialIconsInView] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [socialIconsMobileRef, socialIconsMobileInView] = useInView({ triggerOnce: false, threshold: 0.2 });
   const [copyrightRef, copyrightInView] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [copyrightMobileRef, copyrightMobileInView] = useInView({ triggerOnce: false, threshold: 0.2 });
 
   useEffect(() => {
-    if (titleInView) titleControls.start("visible");
-  }, [titleInView, titleControls]);
+    if (titleInView || titleMobileInView) titleControls.start("visible");
+  }, [titleInView, titleMobileInView, titleControls]);
 
   useEffect(() => {
-    if (socialIconsInView) socialIconsControls.start("visible");
-  }, [socialIconsInView, socialIconsControls]);
+    if (socialIconsInView || socialIconsMobileInView) socialIconsControls.start("visible");
+  }, [socialIconsInView, socialIconsMobileInView, socialIconsControls]);
 
   useEffect(() => {
-    if (copyrightInView) copyrightControls.start("visible");
-  }, [copyrightInView, copyrightControls]);
+    if (copyrightInView || copyrightMobileInView) copyrightControls.start("visible");
+  }, [copyrightInView, copyrightMobileInView, copyrightControls]);
 
   useEffect(() => {
     if (!isSafari) return;
@@ -74,10 +77,10 @@ const Footer = () => {
       {/* Mobile: fondo estático */}
       <div
         className="md:hidden absolute w-full h-full bg-[length:125%_100%] bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundMobile})` }}
+        style={{ backgroundImage: `url(${background})` }}
       />
 
-      {/* Desktop: video animado */}
+      {/* Desktop: video animado con contenido encima */}
       <div className="hidden md:block relative">
         <div
           className="absolute inset-0 w-full h-full bg-[length:100%_100%] bg-no-repeat"
@@ -93,60 +96,119 @@ const Footer = () => {
             style={{ backgroundImage: `url(${background})` }}
           />
         )}
+
+        {/* Contenido desktop encima del video */}
+        <div className="absolute inset-0 pt-[15px] ps-[17px] md:pt-20">
+          <motion.div
+            ref={titleRef}
+            initial="hidden"
+            animate={titleControls}
+            variants={titleVariant}
+            className="md:ps-[66px] mt-15 flex flex-col items-start gap-3 font-orbitron text-white font-[700] [text-shadow:_5px_5px_4px_rgba(255,255,255,0.51)] drop-shadow-xl"
+          >
+            <h1 className="text-[24px] md:text-[32px]">Cool down</h1>
+            <h1 className="text-[16px] md:text-[20px]">
+              with <span className="text-[36px] md:text-[40px]">TEMPEST</span>
+            </h1>
+            <motion.div
+              ref={socialIconsRef}
+              initial="hidden"
+              animate={socialIconsControls}
+              variants={socialIconsContainerVariant}
+              className="flex md:flex-col items-center gap-3 ms-5"
+            >
+              <div className="flex gap-2 md:gap-8">
+                <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+                  <a href="https://www.linkedin.com/in/dominique-mccormack-4213791b7/" target="_blank" rel="noopener noreferrer" className="block">
+                    <img src={linkedinIcon} alt="linkedin-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                  </a>
+                </motion.div>
+                <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+                  <a href="https://www.instagram.com/tempestdigital_/" target="_blank" rel="noopener noreferrer" className="block">
+                    <img src={instagramIcon} alt="instagram-icon" className="invert md:w-[33px] w-[15px] transition-transform duration-300" />
+                  </a>
+                </motion.div>
+                <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+                  <a href="https://www.tiktok.com/@tempestdigital_?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="block">
+                    <img src={tiktokIcon} alt="tiktok-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                  </a>
+                </motion.div>
+              </div>
+              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+                <a href="https://www.fiverr.com/lexyblue3456" target="_blank" rel="noopener noreferrer" className="block">
+                  <img src={fiverIcon} alt="fiverr-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                </a>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <motion.h2
+          ref={copyrightRef}
+          initial="hidden"
+          animate={copyrightControls}
+          variants={copyrightVariant}
+          className="absolute font-inter font-[400] md:text-[15px] text-[8px] text-white bottom-8 text-center w-full drop-shadow-[0_4px_4px_rgba(0,0,0,1)]"
+        >
+          © 2025 Designed by Tempest Digital, All rights reserved. <br />
+          <a href="https://www.crixiumdigital.com/en/" target="_blank" rel="noopener noreferrer">
+            Developed by <span className="hover:text-black">CrixiumDigital</span>{" "}
+          </a>
+        </motion.h2>
       </div>
 
-      {/* Contenido encima (mobile y desktop) */}
-      <div className="absolute pt-[15px] ps-[17px] md:pt-20">
+      {/* Contenido mobile — igual que main */}
+      <div className="md:hidden absolute pt-[15px] ps-[17px]">
         <motion.div
-          ref={titleRef}
+          ref={titleMobileRef}
           initial="hidden"
           animate={titleControls}
           variants={titleVariant}
-          className="md:ps-[66px] mt-15 flex flex-col items-start gap-3 font-orbitron text-white font-[700] [text-shadow:_5px_5px_4px_rgba(255,255,255,0.51)] drop-shadow-xl"
+          className="mt-15 flex flex-col items-start gap-3 font-orbitron text-white font-[700] [text-shadow:_5px_5px_4px_rgba(255,255,255,0.51)] drop-shadow-xl"
         >
-          <h1 className="text-[24px] md:text-[32px]">Cool down</h1>
-          <h1 className="text-[16px] md:text-[20px]">
-            with <span className="text-[36px] md:text-[40px]">TEMPEST</span>
+          <h1 className="text-[24px]">Cool down</h1>
+          <h1 className="text-[16px]">
+            with <span className="text-[36px]">TEMPEST</span>
           </h1>
           <motion.div
-            ref={socialIconsRef}
+            ref={socialIconsMobileRef}
             initial="hidden"
             animate={socialIconsControls}
             variants={socialIconsContainerVariant}
-            className="flex md:flex-col items-center gap-3 ms-5"
+            className="flex items-center gap-3 ms-5"
           >
-            <div className="flex gap-2 md:gap-8">
-              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+            <div className="flex gap-2">
+              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 transform hover:scale-110 cursor-pointer">
                 <a href="https://www.linkedin.com/in/dominique-mccormack-4213791b7/" target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={linkedinIcon} alt="linkedin-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                  <img src={linkedinIcon} alt="linkedin-icon" className="w-[15px]" />
                 </a>
               </motion.div>
-              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 transform hover:scale-110 cursor-pointer">
                 <a href="https://www.instagram.com/tempestdigital_/" target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={instagramIcon} alt="instagram-icon" className="invert md:w-[33px] w-[15px] transition-transform duration-300" />
+                  <img src={instagramIcon} alt="instagram-icon" className="invert w-[15px]" />
                 </a>
               </motion.div>
-              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+              <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 transform hover:scale-110 cursor-pointer">
                 <a href="https://www.tiktok.com/@tempestdigital_?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={tiktokIcon} alt="tiktok-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                  <img src={tiktokIcon} alt="tiktok-icon" className="w-[15px]" />
                 </a>
               </motion.div>
             </div>
-            <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
+            <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 transform hover:scale-110 cursor-pointer">
               <a href="https://www.fiverr.com/lexyblue3456" target="_blank" rel="noopener noreferrer" className="block">
-                <img src={fiverIcon} alt="fiverr-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                <img src={fiverIcon} alt="fiverr-icon" className="w-[15px]" />
               </a>
             </motion.div>
           </motion.div>
         </motion.div>
       </div>
-
       <motion.h2
         ref={copyrightRef}
         initial="hidden"
         animate={copyrightControls}
         variants={copyrightVariant}
-        className="absolute font-inter font-[400] md:text-[15px] text-[8px] text-white bottom-8 text-center w-full drop-shadow-[0_4px_4px_rgba(0,0,0,1)]"
+        ref={copyrightMobileRef}
+        className="md:hidden absolute font-inter font-[400] text-[8px] text-white bottom-8 text-center w-full drop-shadow-[0_4px_4px_rgba(0,0,0,1)]"
       >
         © 2025 Designed by Tempest Digital, All rights reserved. <br />
         <a href="https://www.crixiumdigital.com/en/" target="_blank" rel="noopener noreferrer">

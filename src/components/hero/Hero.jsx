@@ -141,7 +141,7 @@ const Hero = () => {
         <div className="absolute inset-0 z-10 flex flex-col items-center gap-[19px] text-white">
           <motion.h1
             initial="hidden"
-            animate={titleControls}
+            animate="visible"
             variants={titleVariant}
             className="text-[55px] font-spartan font-600 mb-0 mt-[230px]"
             style={{
@@ -153,7 +153,7 @@ const Hero = () => {
           >
             WELCOME
           </motion.h1>
-          <motion.div initial="hidden" animate={buttonControls} variants={buttonVariant}>
+          <motion.div initial="hidden" animate="visible" variants={buttonVariant}>
             <ExploreBtn text="Explore" className="font-orbitron font-[700px] text-[15px]" onClick={openAboutModal} />
           </motion.div>
         </div>

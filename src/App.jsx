@@ -28,10 +28,10 @@ function App() {
       <div id="game-programming">
         <GameProgrammingSection />
       </div>
-      <div id="video-editing">
+      <div id="video-editing" className="-mt-[3px]">
         <VideoEditing />
       </div>
-<div className="-mt-[3px]">
+      <div className="-mt-[3px]">
         <Waterfall />
       </div>
       <div id="3d-art">
