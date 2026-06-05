@@ -109,41 +109,50 @@ const GameProgrammingSection = () => {
 
       {/* Contenido */}
       <div className="absolute inset-0 z-10 w-full">
-        <motion.h1
-          ref={titleRef}
-          initial="hidden"
-          animate={titleControls}
-          variants={titleVariant}
-          className="font-orbitron font-black text-white text-[26.53px] text-center md:text-start md:ms-[48px] [text-shadow:_3px_6px_4px_rgba(52,140,240,1)] drop-shadow-xl pt-[46px]"
-        >
-          Game Programming
-        </motion.h1>
+        {/* Wrapper max-width */}
+        <div className="absolute inset-0 w-full max-w-[1360px] mx-auto">
 
-        <div className="w-full relative">
+          {/* Carousel — anclado a bottom 25.8% */}
+          <motion.div
+            ref={carouselRef}
+            initial="hidden"
+            animate={carouselControls}
+            variants={carouselVariant}
+            className="absolute bottom-[25.8%] left-0 w-full flex justify-center"
+          >
+            <div className="w-full max-w-[1200px]">
+              <GameCarousel />
+            </div>
+          </motion.div>
+
+          {/* Título */}
+          <motion.h1
+            ref={titleRef}
+            initial="hidden"
+            animate={titleControls}
+            variants={titleVariant}
+            className="font-orbitron font-black text-white text-[26.53px] md:text-[40px] text-center md:text-start md:ms-[48px] md:leading-none md:[text-shadow:_5px_5px_4px_#348CF0] absolute h-[100px] flex items-start w-full"
+            style={{ bottom: "calc(25.8% + 200px + 84px + 102px)" }}
+          >
+            <span className="md:hidden">Game Programming</span>
+            <span className="hidden md:inline">Gameplay Implementation/Visual Scripting</span>
+          </motion.h1>
+
+          {/* Descripción */}
           <motion.div
             ref={descriptionRef}
             initial="hidden"
             animate={descriptionControls}
             variants={descriptionVariant}
-            className="w-[340px] md:w-[681px] h-[102px] absolute right-0 md:right-[48px] mt-[43px]"
+            className="w-[340px] md:w-[681px] h-[102px] absolute right-0 md:right-[48px]"
+            style={{ bottom: "calc(25.8% + 200px + 84px)" }}
           >
-            <h2 className="text-[16px] h-full flex items-center text-white font-rajdhani backdrop-blur-3xl p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-full rounded-l-full">
+            <h2 className="h-full flex items-center text-white font-rajdhani text-[16px] md:font-semibold md:text-[22px] md:leading-[26px] backdrop-blur-3xl p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-full rounded-l-full">
               Discover my game dev projects developed in Unity, showcasing my skills in game design and programming.
             </h2>
           </motion.div>
-        </div>
 
-        <motion.div
-          ref={carouselRef}
-          initial="hidden"
-          animate={carouselControls}
-          variants={carouselVariant}
-          className="relative top-[350px] md:top-[180px] w-full flex justify-center"
-        >
-          <div className="w-full max-w-[1200px]">
-            <GameCarousel />
-          </div>
-        </motion.div>
+        </div>{/* end max-w wrapper */}
 
         <motion.div
           ref={riveRef}
