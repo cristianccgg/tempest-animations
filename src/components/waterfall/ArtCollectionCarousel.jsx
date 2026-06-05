@@ -385,13 +385,13 @@ const ArtCollectionCarousel = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Section Title */}
-      <div className="mb-8 px-6 md:pl-[84px] flex flex-col md:flex-row items-center mx-auto max-w-[1360px] justify-between gap-10 md:gap-0">
+      <div className="mb-8 px-6 md:pl-[84px] mt-[70px] md:mt-0 flex flex-col md:flex-row items-center mx-auto max-w-[1360px] justify-between gap-10 md:gap-0">
         <motion.h2
           ref={titleRef}
           initial="hidden"
           animate={titleControls}
           variants={titleVariant}
-          className="order-2 md:order-0 text-2xl lg:text-[36px] font-orbitron font-[900] text-white leading-[52px] tracking-[0.05em] flex flex-col md:block"
+          className="order-2 md:order-0 text-[22px] md:text-[36px] font-orbitron font-bold md:font-[900] text-white leading-none md:leading-[52px] md:tracking-[0.05em] flex flex-col md:block mt-[80px] md:mt-0"
           style={{ textShadow: "8px 12px 4px #000000" }}
         >
           <span className="md:hidden">3D Assets & Environments</span>
@@ -490,8 +490,8 @@ const ArtCollectionCarousel = () => {
             {cards.map((card) => (
               <div key={card.id} className="w-full flex-shrink-0 px-4">
                 <div
-                  className="bg-blue-900/50 rounded-lg overflow-hidden mx-auto border border-transparent hover:border-blue-400/40 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20"
-                  style={{ width: "204px", height: "261px" }}
+                  className="rounded-lg overflow-hidden mx-auto border-2 border-gray-300/30 hover:border-blue-400/40 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20"
+                  style={{ width: "204px", height: "261px", background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}
                 >
                   <div className="p-4 h-full flex flex-col">
                     <div className="flex-grow flex items-center justify-center mb-0">

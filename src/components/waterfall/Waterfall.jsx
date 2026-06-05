@@ -30,11 +30,11 @@ const Waterfall = () => {
   const mobileContent = (
     <div className="text-white flex justify-evenly items-center font-poppins font-[900]">
       <div className="flex flex-col items-center">
-        <h1 className="text-[32px] tracking-[6%] leading-[44px] text-center">20+</h1>
-        <h2 className="text-[32px] tracking-[6%] leading-[44px] text-center">Skills</h2>
+        <h1 className="text-[32px] tracking-[0.06em] leading-[44px] text-center">20+</h1>
+        <h2 className="text-[32px] tracking-[0.06em] leading-[44px] text-center">SKILLS</h2>
       </div>
       <div className="flex flex-col items-center">
-        <h1 className="text-center text-[32px] tracking-[6%] leading-[44px]">
+        <h1 className="text-center text-[32px] tracking-[0.06em] leading-[44px]">
           10+ Projects <br /> Completed
         </h1>
       </div>
@@ -53,7 +53,7 @@ const Waterfall = () => {
       <div className="md:hidden relative z-10 flex flex-col justify-center h-full">
         <div
           ref={mobileTextRef}
-          className="relative w-full max-w-[1359px] mx-auto opacity-0 transition-opacity duration-1000 ease-in-out fade-in"
+          className="relative w-full max-w-[1359px] mx-auto opacity-0 transition-opacity duration-1000 ease-in-out fade-in mt-[120px]"
         >
           {mobileContent}
         </div>

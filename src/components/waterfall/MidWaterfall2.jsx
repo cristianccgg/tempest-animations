@@ -102,20 +102,10 @@ const MidWaterfall2 = () => {
             style={{ zIndex: 1 }}
           />
           <div className="relative z-10 h-full">
-            <motion.h2
-              ref={titleRef}
-              initial="hidden"
-              animate={titleControls}
-              variants={titleVariant}
-              className="font-orbitron text-3xl text-nowrap text-center right-1/2 translate-x-1/2 font-bold text-white absolute top-10 z-20 [text-shadow:_8px_12px_4px_rgba(0,0,0,1)] drop-shadow-xl"
-            >
-              Web Design <br /> Projects
-            </motion.h2>
             <div className="flex flex-col items-center h-full">
               <motion.div
-                ref={cardsRef}
                 initial="hidden"
-                animate={cardsControls}
+                animate="visible"
                 variants={cardsContainerVariant}
                 className="flex w-full items-center justify-center h-full"
               >
