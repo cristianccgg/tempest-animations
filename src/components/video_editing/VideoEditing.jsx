@@ -116,89 +116,38 @@ const VideoEditing = () => {
   const innerContent = (
     <>
       <AnimationStyles />
-      <div className="relative z-10 w-full">
-        <motion.h1
-          ref={titleViewRef}
-          initial="hidden"
-          animate={titleInView ? "visible" : "hidden"}
-          variants={titleVariant}
-          className="font-orbitron flex items-center justify-center md:justify-end md:me-8 font-black text-white text-[26.53px] md:text-[40px] text-start [text-shadow:_3px_6px_4px_rgba(52,140,240,1)] drop-shadow-xl pt-[46px]"
-        >
-          Video Editing & <br className="md:hidden" /> Post-production
-        </motion.h1>
-
-        <div className="relative">
-          <motion.div
-            ref={bubbleViewRef}
+      <div className="absolute inset-0 max-w-[1360px] mx-auto">
+        {/* Título */}
+        <div className="relative z-10 w-full">
+          <motion.h1
+            ref={titleViewRef}
             initial="hidden"
-            animate={bubbleControls}
-            variants={bubbleVariant}
-            className="absolute right-10 md:right-105 flex items-center justify-center mt-[43px] bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer"
-            style={{ backgroundImage: `url(${bubble})` }}
+            animate={titleInView ? "visible" : "hidden"}
+            variants={titleVariant}
+            className="font-orbitron flex items-center justify-center md:justify-end md:me-8 font-black text-white text-[26.53px] md:text-[40px] md:leading-none text-start pt-[46px] md:[text-shadow:_5px_5px_4px_#348CF0CF]"
           >
-            <h2 className="text-[7px] md:text-[14px] md:w-52 text-center w-20 text-white font-orbitron leading-[1.5]">
-              Explore my video editing and post-production portfolio using Adobe Creative Suite, with experience in animation and VFX.
-            </h2>
-          </motion.div>
+            <span className="md:hidden">Video Editing & <br /> Post-production</span>
+            <span className="hidden md:inline">Real-Time VFX Particle Systems &<br />Materials</span>
+          </motion.h1>
         </div>
 
-        <div className="absolute top-[350px] md:top-25 right-1/2 md:right-5 transform translate-x-1/2 md:translate-x-0 rocket-container">
-          <div ref={orbitRef} className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
-            <motion.div
-              ref={rocketViewRef}
-              initial="hidden"
-              animate={rocketControls}
-              variants={rocketVariant}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50"
-              onMouseEnter={handleRocketHover}
-              onMouseLeave={handleRocketLeave}
-            >
-              <div
-                className="absolute inset-0 bg-blue-400 blur-md rounded-full scale-110 -z-10 transition-opacity duration-500"
-                style={{ opacity: isRocketHovered ? 0.7 : 0, pointerEvents: "none" }}
-              />
-              <div
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-6 md:w-10 -z-5"
-                style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease", pointerEvents: "none" }}
-              >
-                <div className="h-16 md:h-24 animate-pulse bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent rounded-b-full" />
-              </div>
-              <img
-                src={rocket}
-                alt="rocket"
-                className="h-[209px] md:h-[366.67px] w-auto object-cover relative z-10 transition-transform ease-in-out duration-500"
-                style={{ transform: isRocketHovered ? "rotate(0deg)" : "rotate(25deg)", transformOrigin: "center center", willChange: "transform" }}
-              />
-              <div className="absolute inset-0 pointer-events-none" style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease" }}>
-                <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping" />
-                <div className="absolute top-1/4 right-1/3 w-3 h-3 bg-yellow-300 rounded-full animate-ping animation-delay-300" />
-                <div className="absolute bottom-1/3 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-ping animation-delay-700" />
-                <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white rounded-full animate-ping animation-delay-1000" />
-                <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-yellow-200 rounded-full animate-ping animation-delay-500" />
-              </div>
-            </motion.div>
-
-            {orbitalElements.map((item) => (
-              <OrbitalElement key={item.id} item={item} containerSize={orbitSize} isMobile={isMobile} />
-            ))}
-          </div>
-          <div className="absolute bottom-25 left-0 w-[300px] h-[300px] z-20">
-            <Rive src="/animations/untitled.riv" animations="Timeline 1" autoPlay={true} />
-          </div>
-        </div>
-
-        <div
-          className="top-125 md:top-135 right-38 absolute hidden md:block z-50"
-          style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}
+        {/* Burbuja — directo en el wrapper con altura correcta */}
+        <motion.div
+          ref={bubbleViewRef}
+          initial="hidden"
+          animate={bubbleControls}
+          variants={bubbleVariant}
+          className="absolute right-10 md:left-[141px] flex items-center justify-center bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer mt-[43px] md:mt-0"
+          style={{ backgroundImage: `url(${bubble})`, bottom: "48.3%", border: "1px solid #44A4E36E", boxShadow: "inset 0px 4px 4px 0px #00000040" }}
         >
-          <button
-            className="text-white font-rajdhani font-[700] text-[48px] rounded-full px-[63px] py-[4px] bg-linear-to-r from-[#3BACE2] from-5% via-[#1270DC] via-75% to-[#4EF5FF] to-[100%] backdrop-blur-3xl hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse"
-            onClick={openModal}
-          >
-            View
-          </button>
-        </div>
-      </div>
+          <h2 className="text-[7px] md:text-[14px] md:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
+            <span className="md:hidden">Explore my video editing and post-production portfolio using Adobe Creative Suite, with experience in animation and VFX.</span>
+            <span className="hidden md:inline">Explore my video editing and post-production portfolio using Adobe Creative Suite, with animated transitions and VFX.</span>
+          </h2>
+        </motion.div>
+
+      </div>{/* end max-w wrapper */}
+
       <div
         className="bottom-[32px] md:hidden left-1/2 transform -translate-x-1/2 absolute z-50"
         style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}
@@ -233,6 +182,66 @@ const VideoEditing = () => {
       {/* Contenido encima — absolute sobre mobile y desktop */}
       <div className="absolute inset-0">
         {innerContent}
+        {/* Cohete + botón View desktop — contenedor unificado centrado */}
+        <div className="absolute hidden md:flex md:flex-col md:items-center z-50" style={{ right: "11.5%", bottom: "26.2%" }}>
+          {/* Cohete con orbitales */}
+          <div ref={orbitRef} className="relative w-[400px] h-[400px]">
+            <motion.div
+              ref={rocketViewRef}
+              initial="hidden"
+              animate={rocketControls}
+              variants={rocketVariant}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 cursor-pointer"
+              onMouseEnter={handleRocketHover}
+              onMouseLeave={handleRocketLeave}
+            >
+              <div className="absolute inset-0 bg-blue-400 blur-md rounded-full scale-110 -z-10 transition-opacity duration-500" style={{ opacity: isRocketHovered ? 0.7 : 0, pointerEvents: "none" }} />
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-10 -z-5" style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease", pointerEvents: "none" }}>
+                <div className="h-24 animate-pulse bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent rounded-b-full" />
+              </div>
+              <img
+                src={rocket}
+                alt="rocket"
+                className="h-[366.67px] w-auto object-cover relative z-10 transition-transform ease-in-out duration-500"
+                style={{ transform: isRocketHovered ? "rotate(0deg)" : "rotate(25deg)", transformOrigin: "center center", willChange: "transform" }}
+              />
+              <div className="absolute inset-0 pointer-events-none" style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease" }}>
+                <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping" />
+                <div className="absolute top-1/4 right-1/3 w-3 h-3 bg-yellow-300 rounded-full animate-ping animation-delay-300" />
+                <div className="absolute bottom-1/3 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-ping animation-delay-700" />
+                <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white rounded-full animate-ping animation-delay-1000" />
+                <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-yellow-200 rounded-full animate-ping animation-delay-500" />
+              </div>
+            </motion.div>
+            {orbitalElements.map((item) => (
+              <OrbitalElement key={item.id} item={item} containerSize={orbitSize} isMobile={isMobile} />
+            ))}
+          </div>
+          {/* Botón View */}
+          <div
+            className="mt-8"
+            style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}
+          >
+          <div
+            className="rounded-full p-[2.21px] transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+            style={{
+              background: "linear-gradient(272.52deg, #1870D4 50.72%, #4ADAFC 102.04%)",
+              boxShadow: "0px 4.42px 107.23px 0px #406AFFB2",
+            }}
+          >
+            <button
+              className="text-white font-rajdhani font-[700] text-[48px] rounded-full px-[63px] py-[4px] animate-pulse cursor-pointer"
+              style={{
+                background: "linear-gradient(92.23deg, #32EDFE -2.87%, #3BACE2 36.15%, #1270DC 75.16%, #4EF5FF 114.17%)",
+                backdropFilter: "blur(212px)",
+              }}
+              onClick={openModal}
+            >
+              View
+            </button>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
   );
