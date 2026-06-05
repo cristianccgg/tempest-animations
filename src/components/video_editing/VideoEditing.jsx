@@ -35,7 +35,9 @@ const AnimationStyles = () => (
 const VideoEditing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const orbitRef = useRef(null);
+  const orbitMobileRef = useRef(null);
   const [orbitSize, setOrbitSize] = useState({ width: 0, height: 0 });
+  const [orbitMobileSize, setOrbitMobileSize] = useState({ width: 0, height: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const [isRocketHovered, setIsRocketHovered] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
@@ -88,9 +90,12 @@ const VideoEditing = () => {
   ];
 
   const updateSizeAndDevice = () => {
+    setIsMobile(window.innerWidth < 768);
     if (orbitRef.current) {
       setOrbitSize({ width: orbitRef.current.offsetWidth, height: orbitRef.current.offsetHeight });
-      setIsMobile(window.innerWidth < 768);
+    }
+    if (orbitMobileRef.current) {
+      setOrbitMobileSize({ width: orbitMobileRef.current.offsetWidth, height: orbitMobileRef.current.offsetHeight });
     }
   };
 
@@ -124,7 +129,7 @@ const VideoEditing = () => {
             initial="hidden"
             animate={titleInView ? "visible" : "hidden"}
             variants={titleVariant}
-            className="font-orbitron flex items-center justify-center md:justify-end md:me-8 font-black text-white text-[26.53px] md:text-[40px] md:leading-none text-start pt-[46px] md:[text-shadow:_5px_5px_4px_#348CF0CF]"
+            className="font-orbitron flex items-center md:justify-end md:me-8 font-bold text-white text-[26.53px] md:text-[40px] leading-[126%] md:leading-none text-start pt-[46px] ps-[40px] md:ps-0 [text-shadow:_5px_5px_4px_#348CF0] md:[text-shadow:_5px_5px_4px_#348CF0CF]"
           >
             <span className="md:hidden">Video Editing & <br /> Post-production</span>
             <span className="hidden md:inline">Real-Time VFX Particle Systems &<br />Materials</span>
@@ -137,8 +142,8 @@ const VideoEditing = () => {
           initial="hidden"
           animate={bubbleControls}
           variants={bubbleVariant}
-          className="absolute right-10 md:left-[141px] flex items-center justify-center bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer mt-[43px] md:mt-0"
-          style={{ backgroundImage: `url(${bubble})`, bottom: "48.3%" }}
+          className="absolute right-[120px] md:left-[141px] top-[162px] md:top-auto md:bottom-[48.3%] flex items-center justify-center bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer"
+          style={{ backgroundImage: `url(${bubble})` }}>
         >
           <h2 className="text-[7px] md:text-[14px] md:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
             <span className="md:hidden">Explore my video editing and post-production portfolio using Adobe Creative Suite, with experience in animation and VFX.</span>
@@ -146,14 +151,49 @@ const VideoEditing = () => {
           </h2>
         </motion.div>
 
+        {/* Cohete mobile */}
+        <div className="md:hidden absolute top-[350px] right-1/2 transform translate-x-1/2">
+          <div ref={orbitMobileRef} className="relative w-[300px] h-[300px]">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={rocketVariant}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 cursor-pointer"
+              onMouseEnter={handleRocketHover}
+              onMouseLeave={handleRocketLeave}
+            >
+              <div className="absolute inset-0 bg-blue-400 blur-md rounded-full scale-110 -z-10 transition-opacity duration-500" style={{ opacity: isRocketHovered ? 0.7 : 0, pointerEvents: "none" }} />
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-6 -z-5" style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease", pointerEvents: "none" }}>
+                <div className="h-16 animate-pulse bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent rounded-b-full" />
+              </div>
+              <img
+                src={rocket}
+                alt="rocket"
+                className="h-[209px] w-auto object-cover relative z-10 transition-transform ease-in-out duration-500"
+                style={{ transform: isRocketHovered ? "rotate(0deg)" : "rotate(25deg)", transformOrigin: "center center", willChange: "transform" }}
+              />
+              <div className="absolute inset-0 pointer-events-none" style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease" }}>
+                <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping" />
+                <div className="absolute top-1/4 right-1/3 w-3 h-3 bg-yellow-300 rounded-full animate-ping animation-delay-300" />
+                <div className="absolute bottom-1/3 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-ping animation-delay-700" />
+                <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white rounded-full animate-ping animation-delay-1000" />
+                <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-yellow-200 rounded-full animate-ping animation-delay-500" />
+              </div>
+            </motion.div>
+            {orbitalElements.map((item) => (
+              <OrbitalElement key={item.id} item={item} containerSize={orbitMobileSize} isMobile={true} />
+            ))}
+          </div>
+        </div>
+
       </div>{/* end max-w wrapper */}
 
       <div
-        className="bottom-[32px] md:hidden left-1/2 transform -translate-x-1/2 absolute z-50"
+        className="bottom-[82px] md:hidden left-1/2 transform -translate-x-1/2 absolute z-50"
         style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}
       >
         <button
-          className="text-white font-rajdhani font-[700] text-[32px] rounded-4xl px-[49px] py-[4px] bg-linear-to-r from-[#3BACE2] from-5% via-[#1270DC] via-75% to-[#4EF5FF] to-[100%] backdrop-blur-3xl hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse"
+          className="text-white font-rajdhani font-bold text-[20px] leading-none w-[100px] h-[48px] rounded-4xl bg-linear-to-r from-[#3BACE2] from-5% via-[#1270DC] via-75% to-[#4EF5FF] to-[100%] backdrop-blur-3xl transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse cursor-pointer"
           onClick={openModal}
         >
           View
