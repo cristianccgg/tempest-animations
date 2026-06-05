@@ -138,7 +138,7 @@ const VideoEditing = () => {
           animate={bubbleControls}
           variants={bubbleVariant}
           className="absolute right-10 md:left-[141px] flex items-center justify-center bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer mt-[43px] md:mt-0"
-          style={{ backgroundImage: `url(${bubble})`, bottom: "48.3%", border: "1px solid #44A4E36E", boxShadow: "inset 0px 4px 4px 0px #00000040" }}
+          style={{ backgroundImage: `url(${bubble})`, bottom: "48.3%" }}
         >
           <h2 className="text-[7px] md:text-[14px] md:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
             <span className="md:hidden">Explore my video editing and post-production portfolio using Adobe Creative Suite, with experience in animation and VFX.</span>
