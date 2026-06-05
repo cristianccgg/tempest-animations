@@ -173,8 +173,20 @@ const MidWaterfall2 = () => {
             </div>
           </div>
 
+          {/* Título Animated Web Pages */}
+          <motion.h2
+            ref={titleRef}
+            initial="hidden"
+            animate={titleControls}
+            variants={titleVariant}
+            className="hidden md:block font-orbitron text-nowrap font-black text-white absolute right-[38px] z-20 md:text-[40px] md:leading-[59px]"
+            style={{ top: "calc(50% - 204px)", textShadow: "8px 12px 4px #000000" }}
+          >
+            Animated Web Pages
+          </motion.h2>
+
           {/* Segunda mitad — Web Design Projects */}
-          <div className="absolute bottom-0 left-0 w-full h-1/2 overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-full h-1/2">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -183,32 +195,29 @@ const MidWaterfall2 = () => {
               style={{ zIndex: 1 }}
             />
             <div className="relative z-10 h-full">
-              <motion.h2
-                ref={titleRef}
-                initial="hidden"
-                animate={titleControls}
-                variants={titleVariant}
-                className="font-orbitron md:text-[40px] text-nowrap font-bold text-white absolute top-[100px] right-[40px] z-20 [text-shadow:_8px_12px_4px_rgba(0,0,0,1)] drop-shadow-xl"
-              >
-                Web Design Projects
-              </motion.h2>
               <div className="flex h-full">
                 <motion.div
                   ref={cardsRef}
                   initial="hidden"
                   animate={cardsControls}
                   variants={cardsContainerVariant}
-                  className="flex w-full items-start justify-end pr-[75px] pt-[180px]"
+                  className="flex w-full items-start justify-end pr-[38px]"
+                  style={{ marginTop: "-88px" }}
                 >
-                  <div className="relative w-[483px] h-[647px]">
+                  <div className="relative w-[483px]">
                     <motion.div
                       variants={cardVariant}
-                      className={`absolute top-25 -left-20 w-[483px] h-[647px] border-gradient-web-design rounded-2xl backdrop-blur-2xl p-6 transition-all duration-500 shadow-xl ${activeCard === "telescope" ? "z-20" : "z-10 bg-black/60 scale-[0.98]"} hover:shadow-[0_0_20px_rgba(147,197,253,0.5)] cursor-pointer`}
+                      className={`absolute top-25 -left-20 w-[483px] border-gradient-web-design rounded-2xl p-6 transition-all duration-500 shadow-xl ${activeCard === "telescope" ? "z-20" : "z-10 scale-[0.98]"} hover:shadow-[0_0_20px_rgba(147,197,253,0.5)] cursor-pointer`}
+                      style={{ background: activeCard === "telescope" ? "#FFFFFF1A" : "#000B4280", backdropFilter: "blur(84.6px)", transition: "background 500ms" }}
                       onMouseEnter={() => setActiveCard("telescope")}
                     >
                       <div className="flex flex-col h-full justify-between">
-                        <h3 className="font-inter md:text-[40px] font-bold text-white mb-4 [text-shadow:_0px_4px_4px_rgba(255,255,255,0.5)]">StarryNight</h3>
-                        <p className="font-inter text-white md:text-[25px] md:leading-[50.2px] font-normal">This is a visual representation of an artwork turned into an interactive website. Using CSS, I animated a rotating galaxy with shiny stars representing links to different parts of the page.</p>
+                        <h3 className="font-inter md:text-[40px] font-extrabold text-white md:leading-[59px]" style={{ textShadow: "0px 4px 4px #FFFFFF73", marginBottom: "10.35px" }}>StarryNight</h3>
+                        <div className="font-inter text-white text-[20px] leading-[34px] flex flex-col gap-[34px]">
+                          <p><span className="font-bold">Problem:</span><span className="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+                          <p><span className="font-bold">Action:</span><span className="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+                          <p><span className="font-bold">Result:</span><span className="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+                        </div>
                         <div className="mt-auto flex justify-end">
                           <img src={telescope} alt="Telescope" onClick={() => setActiveProject("starrynight")} className="w-[163px] h-[181px] object-contain cursor-pointer" />
                         </div>
@@ -216,12 +225,17 @@ const MidWaterfall2 = () => {
                     </motion.div>
                     <motion.div
                       variants={cardVariant}
-                      className={`absolute top-0 left-0 w-[483px] h-[647px] border-gradient-web-design rounded-2xl backdrop-blur-2xl p-6 transition-all duration-500 shadow-xl ${activeCard === "rocket" ? "z-20" : "z-10 bg-black/60 scale-[0.98]"} hover:shadow-[0_0_20px_rgba(167,139,250,0.5)] cursor-pointer`}
+                      className={`absolute top-0 left-0 w-[483px] border-gradient-web-design rounded-2xl p-6 transition-all duration-500 shadow-xl ${activeCard === "rocket" ? "z-20" : "z-10 scale-[0.98]"} hover:shadow-[0_0_20px_rgba(167,139,250,0.5)] cursor-pointer`}
+                      style={{ background: activeCard === "rocket" ? "#FFFFFF1A" : "#000B4280", backdropFilter: "blur(84.6px)", transition: "background 500ms" }}
                       onMouseEnter={() => setActiveCard("rocket")}
                     >
                       <div className="flex flex-col h-full justify-between">
-                        <h3 className="font-inter md:text-[40px] font-bold text-white mb-4 [text-shadow:_0px_4px_4px_rgba(255,255,255,0.5)]">Animated Comic</h3>
-                        <p className="font-inter text-white md:text-[25px] md:leading-[50.2px] font-normal">An interactive page where you can read a comic from the Sonic The Hedgehog series in an animated style. Using the JS library, I made seamless transitions and image cut-ins for each panel.</p>
+                        <h3 className="font-inter md:text-[40px] font-extrabold text-white md:leading-[59px]" style={{ textShadow: "0px 4px 4px #FFFFFF73", marginBottom: "10.35px" }}>Animated Comic</h3>
+                        <div className="font-inter text-white text-[20px] leading-[34px] flex flex-col gap-[34px]">
+                          <p><span className="font-bold">Problem:</span><span className="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+                          <p><span className="font-bold">Action:</span><span className="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+                          <p><span className="font-bold">Result:</span><span className="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+                        </div>
                         <div className="mt-auto flex justify-end">
                           <img src={rocket} alt="Rocket" onClick={() => setActiveProject("animatedcomic")} className="w-[151px] h-[166px] object-contain cursor-pointer" />
                         </div>
