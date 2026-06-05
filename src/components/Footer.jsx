@@ -98,7 +98,7 @@ const Footer = () => {
         )}
 
         {/* Contenido desktop encima del video */}
-        <div className="absolute inset-0 pt-[15px] ps-[17px] md:pt-20">
+        <div className="absolute inset-0 pt-[15px] ps-[17px] md:pt-[230px]">
           <motion.div
             ref={titleRef}
             initial="hidden"
