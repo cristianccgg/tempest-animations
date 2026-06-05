@@ -167,8 +167,8 @@ const MidWaterfall2 = () => {
         {/* Contenido desktop encima del video */}
         <div className="absolute inset-0">
           {/* Primera mitad — ArtCollectionCarousel */}
-          <div className="absolute top-0 left-0 w-full h-1/2 flex justify-center items-center">
-            <div className="container mx-auto px-4">
+          <div className="absolute top-0 left-0 w-full h-1/2 flex justify-center items-start pt-[80px]">
+            <div className="w-full max-w-[1360px] px-4">
               <ArtCollectionCarousel />
             </div>
           </div>

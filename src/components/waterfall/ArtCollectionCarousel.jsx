@@ -157,7 +157,7 @@ const ArtCollectionCarousel = () => {
       id: 1,
       title: "3D Character Modeling",
       element: "element1",
-      username: "TEMPESTDIGITAL_",
+      username: "@TEMPESTDIGITAL_",
       type: "images",
       modalContent: [
         {
@@ -222,7 +222,7 @@ const ArtCollectionCarousel = () => {
       id: 2,
       title: "3D Interior Space",
       element: "element2",
-      username: "TEMPESTDIGITAL_",
+      username: "@TEMPESTDIGITAL_",
       type: "images",
       modalContent: [
         {
@@ -255,7 +255,7 @@ const ArtCollectionCarousel = () => {
       id: 3,
       title: "3D Environment Art",
       element: "element3",
-      username: "TEMPESTDIGITAL_",
+      username: "@TEMPESTDIGITAL_",
       type: "videos",
       modalContent: [
         {
@@ -385,25 +385,28 @@ const ArtCollectionCarousel = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Section Title */}
-      <div className="mb-8 px-6 flex flex-col md:flex-row items-center mx-auto max-w-7xl justify-between gap-10 md:gap-0">
+      <div className="mb-8 px-6 md:pl-[84px] flex flex-col md:flex-row items-center mx-auto max-w-[1360px] justify-between gap-10 md:gap-0">
         <motion.h2
           ref={titleRef}
           initial="hidden"
           animate={titleControls}
           variants={titleVariant}
-          className="order-2 md:order-0 text-2xl lg:text-[40px] font-orbitron font-[900] text-white [text-shadow:_8px_12px_4px_rgba(0,0,0,1)] drop-shadow-xl"
+          className="order-2 md:order-0 text-2xl lg:text-[36px] font-orbitron font-[900] text-white leading-[52px] tracking-[0.05em] flex flex-col md:block"
+          style={{ textShadow: "8px 12px 4px #000000" }}
         >
-          3D ART Collection
+          <span className="md:hidden">3D Assets & Environments</span>
+          <span className="hidden md:inline">3D Assets &<br /><span className="md:pl-[60px]">Environments</span></span>
         </motion.h2>
         <motion.p
           ref={subtitleRef}
           initial="hidden"
           animate={subtitleControls}
           variants={subtitleVariant}
-          className="md:max-w-[671px] font-orbitron lg:text-[20px] text-[13px] tracking-[9%] leading-[162%] font-[900] text-white [text-shadow:_8px_12px_4px_rgba(0,0,0,1)] drop-shadow-xl"
+          className="md:max-w-[671px] font-orbitron text-[13px] md:text-[20px] tracking-[0.09em] leading-[162%] font-[900] text-white"
+          style={{ textShadow: "8px 12px 4px #000000" }}
         >
-          Here is work I did as a 3D artist, modeling characters and interior
-          spaces in Maya, while designing environments in Unreal.{" "}
+          <span className="md:hidden">Here is work I did as a 3D artist, modeling characters and interior spaces in Maya, while designing environments in Unreal.</span>
+          <span className="hidden md:inline">Stylized 3D assets created in Maya, ZBrush, and Substance Painter, with environments built in Unreal 5 using blueprints, and custom materials made in Substance Designer.</span>
         </motion.p>
       </div>
 
@@ -419,8 +422,8 @@ const ArtCollectionCarousel = () => {
           <motion.div
             key={card.id}
             variants={cardVariant}
-            className="bg-blue-900/50 border-gray-300/30 overflow-hidden w-full max-w-sm border-2 hover:border-blue-400/40 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20"
-            style={{ width: "390px", height: "490px" }}
+            className="border-gray-300/30 overflow-hidden w-full max-w-sm border-2 hover:border-blue-400/40 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20"
+            style={{ width: "390px", height: "490px", background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}
           >
             <div className="p-4 h-full flex flex-col">
               <div className="flex-grow flex items-center justify-center ">
@@ -447,13 +450,13 @@ const ArtCollectionCarousel = () => {
                       alt="Avatar"
                       className="w-6 h-6 rounded-full mr-2"
                     />
-                    <span>{card.username}</span>
+                    <span style={{ color: "#44A4E3" }}>{card.username}</span>
                     <img src={check} alt="Verified" className="w-4 h-4 ml-1" />
                   </div>
                 </div>
                 <button
                   onClick={() => openModal(card.id)}
-                  className="w-full py-2 px-4 rounded text-white font-medium transition-all duration-200 transform btn-pulse focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
+                  className="w-full py-2 px-4 rounded text-white font-medium transition-all duration-200 transform btn-pulse focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 cursor-pointer"
                   style={{
                     maxWidth: "209px",
                     height: "44px",
@@ -517,7 +520,7 @@ const ArtCollectionCarousel = () => {
                             alt="Avatar"
                             className="w-5 h-5 rounded-full mr-2"
                           />
-                          <span className="text-sm">{card.username}</span>
+                          <span className="text-sm" style={{ color: "#44A4E3" }}>{card.username}</span>
                           <img
                             src={check}
                             alt="Verified"
