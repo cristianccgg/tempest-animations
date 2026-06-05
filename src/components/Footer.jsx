@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import instagramIcon from "../assets/footer/instagram.svg";
 import linkedinIcon from "../assets/footer/linkedin.svg";
 import tiktokIcon from "../assets/footer/tiktok.svg";
-import fiverIcon from "../assets/footer/Fiverr.png";
+import githubIcon from "../assets/footer/github.svg";
 import background from "../assets/footer/background.png";
 import backgroundMobile from "../assets/footer/background_mobile.png";
 import videoSrc from "../assets/Animations/footer/Footer_final.webm";
@@ -136,7 +136,7 @@ const Footer = () => {
               </div>
               <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 hover:shadow-glow transform hover:scale-110 cursor-pointer">
                 <a href="https://www.fiverr.com/lexyblue3456" target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={fiverIcon} alt="fiverr-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
+                  <img src={githubIcon} alt="github-icon" className="md:w-[33px] w-[15px] transition-transform duration-300" />
                 </a>
               </motion.div>
             </motion.div>
@@ -196,7 +196,7 @@ const Footer = () => {
             </div>
             <motion.div variants={socialIconVariant} className="bg-white/15 hover:bg-white/25 h-full rounded-full p-3 transition-all duration-300 transform hover:scale-110 cursor-pointer">
               <a href="https://www.fiverr.com/lexyblue3456" target="_blank" rel="noopener noreferrer" className="block">
-                <img src={fiverIcon} alt="fiverr-icon" className="w-[15px]" />
+                <img src={githubIcon} alt="github-icon" className="w-[15px]" />
               </a>
             </motion.div>
           </motion.div>
