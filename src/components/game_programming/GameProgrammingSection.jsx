@@ -26,7 +26,7 @@ const GameProgrammingSection = () => {
   return (
     <div
       id="game-programming-section"
-      className="w-full min-h-[822px] -mb-1 relative"
+      className="w-full md:h-[1260px] min-h-[822px] relative overflow-hidden"
     >
       {/* Mobile: imagen estática */}
       <div
