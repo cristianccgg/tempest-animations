@@ -132,33 +132,18 @@ const GameCarousel = () => {
 
   return (
     <>
-      <div className="w-full relative overflow-hidden h-[300px] md:h-[200px] mx-auto max-w-7xl">
-        {/* Navigation Arrows */}
+      <div className="w-full flex items-center justify-center gap-[14px] h-[300px] md:h-[200px] mx-auto max-w-7xl">
+        {/* Arrow Left */}
         <button
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-blue-500/30 active:shadow-inner"
+          className="flex-shrink-0 text-white rounded-full w-[26px] h-[26px] flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer z-40"
           onClick={prevSlide}
         >
-          <img
-            src={carouselArrow}
-            alt="Previous"
-            className="w-6 h-6 transform rotate-180 transition-transform duration-150 hover:-translate-x-1"
-          />
-        </button>
-
-        <button
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-blue-500/30 active:shadow-inner"
-          onClick={nextSlide}
-        >
-          <img
-            src={carouselArrow}
-            alt="Next"
-            className="w-6 h-6 transition-transform duration-150 hover:translate-x-1"
-          />
+          <img src={carouselArrow} alt="Previous" className="w-[26px] h-[26px] transform rotate-180 transition-transform duration-150 hover:-translate-x-1" />
         </button>
 
         {/* Carousel Items Container */}
         <div
-          className="flex items-center justify-center h-full"
+          className="relative h-full flex-none w-[284px] md:w-[545px]"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -182,7 +167,7 @@ const GameCarousel = () => {
             <div className="z-30">
               <div className="flex items-center justify-center md:w-[530px] h-[220px] md:h-[180px]">
                 {/* Element container */}
-                <div className="flex items-center justify-center backdrop-blur-3xl md:w-[279px] md:h-full w-[165px] h-[125px] bg-[#FFFFFF2D] border-4 border-[#FFFFFF47] rounded-4xl z-20 transition-all duration-300 hover:border-[#FFFFFF70] hover:shadow-lg hover:shadow-blue-400/10">
+                <div className="flex items-center justify-center backdrop-blur-3xl md:w-[279px] md:h-full w-[165px] h-[125px] border-4 border-[#FFFFFF47] rounded-4xl z-20 transition-all duration-300 hover:border-[#FFFFFF70]" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.32) -1.52%, rgba(255, 255, 255, 0.0768) 104.35%)", boxShadow: "0px 5.76px 79.2px 0px #00000040" }}>
                   <img
                     src={projects[activeIndex].image}
                     alt={projects[activeIndex].title}
@@ -190,7 +175,7 @@ const GameCarousel = () => {
                   />
                 </div>
                 {/* Info container */}
-                <div className="items-center -ml-[40px] z-10 justify-center backdrop-blur-3xl md:w-[306px] md:h-full w-[159px] h-[125px] bg-[#FFFFFF2D] border-4 border-[#FFFFFF47] rounded-4xl transition-all duration-300 hover:border-[#FFFFFF70] hover:shadow-lg hover:shadow-blue-400/10">
+                <div className="items-center -ml-[40px] z-10 justify-center md:w-[306px] md:h-full w-[159px] h-[125px] border-4 border-[#FFFFFF47] rounded-4xl transition-all duration-300 hover:border-[#FFFFFF70]" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.32) -1.52%, rgba(255, 255, 255, 0.0768) 104.35%)", boxShadow: "0px 5.76px 79.2px 0px #00000040" }}>
                   <div className="flex flex-col md:items-start h-full md:pl-12 pl-[45px]">
                     <div className="flex flex-col h-full justify-evenly gap-3 pe-5 md:py-[24px] py-2">
                       <div className="flex w-full gap-2 items-center">
@@ -260,6 +245,14 @@ const GameCarousel = () => {
             </div>
           </div>
         </div>
+
+        {/* Arrow Right */}
+        <button
+          className="flex-shrink-0 text-white rounded-full w-[26px] h-[26px] flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer z-40"
+          onClick={nextSlide}
+        >
+          <img src={carouselArrow} alt="Next" className="w-[26px] h-[26px] transition-transform duration-150 hover:translate-x-1" />
+        </button>
 
       </div>
 
