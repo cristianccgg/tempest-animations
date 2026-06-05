@@ -27,29 +27,21 @@ const Waterfall = () => {
     };
   }, []);
 
-  const innerContent = (
-    <div className="text-white flex md:flex-row md:justify-between justify-evenly items-center font-poppins font-[900]">
-      <div className="flex flex-col items-center lg:pl-25 md:pl-5">
-        <h1 className="lg:text-[98px] md:text-8xl text-[32px] tracking-[6%] leading-[44px] md:tracking-[0%] md:leading-none text-center">
-          20+
-        </h1>
-        <h2 className="lg:text-[60px] md:text-4xl text-[32px] tracking-[6%] leading-[44px] md:tracking-[0%] md:leading-none text-center">
-          Skills
-        </h2>
+  const mobileContent = (
+    <div className="text-white flex justify-evenly items-center font-poppins font-[900]">
+      <div className="flex flex-col items-center">
+        <h1 className="text-[32px] tracking-[6%] leading-[44px] text-center">20+</h1>
+        <h2 className="text-[32px] tracking-[6%] leading-[44px] text-center">Skills</h2>
       </div>
-      <div className="flex flex-col items-center lg:pr-25 md:pr-5">
-        <h1 className="lg:text-[98px] md:text-7xl text-center text-[32px] tracking-[6%] leading-[44px] md:tracking-[0%] md:leading-none">
-          10+{" "}
-          <span className="md:hidden">
-            Projects <br /> Completed
-          </span>
+      <div className="flex flex-col items-center">
+        <h1 className="text-center text-[32px] tracking-[6%] leading-[44px]">
+          10+ Projects <br /> Completed
         </h1>
-        <h2 className="lg:text-[34px] md:text-4xl text-center hidden md:block">
-          Projects <br /> Completed
-        </h2>
       </div>
     </div>
   );
+
+  const desktopContent = null;
 
   return (
     <div className="w-full h-[750px] md:h-auto relative flex flex-col md:justify-end justify-center overflow-hidden">
@@ -63,7 +55,7 @@ const Waterfall = () => {
           ref={mobileTextRef}
           className="relative w-full max-w-[1359px] mx-auto opacity-0 transition-opacity duration-1000 ease-in-out fade-in"
         >
-          {innerContent}
+          {mobileContent}
         </div>
       </div>
 
@@ -72,13 +64,29 @@ const Waterfall = () => {
         <video autoPlay loop muted playsInline className="w-full block" style={{ pointerEvents: "none" }}>
           <source src={waterfallWebm} type="video/webm" />
         </video>
-        <div className="absolute inset-0 flex flex-col justify-end z-10">
-          <div
-            ref={desktopTextRef}
-            className="relative w-full max-w-[1359px] xl:mb-15 md:mb-10 mx-auto opacity-0 transition-opacity duration-1000 ease-in-out fade-in"
-          >
-            {innerContent}
-          </div>
+        <div className="absolute inset-0 z-10">
+          <div className="absolute inset-0 max-w-[1360px] mx-auto">
+            {/* Grupo izquierdo — TECH Artist */}
+            <div
+              ref={desktopTextRef}
+              className="absolute text-white font-poppins font-[900] flex flex-col items-center opacity-0 transition-opacity duration-1000 ease-in-out fade-in"
+              style={{ bottom: "16.5%", left: "41px" }}
+            >
+              <h1 className="text-[100px] leading-none tracking-[0.05em] text-center">TECH</h1>
+              <h2 className="text-[80px] leading-none tracking-[0.06em] text-center">Artist</h2>
+            </div>
+            {/* Grupo derecho — 10+ Projects */}
+            <div
+              className="absolute text-white font-poppins font-[900] flex flex-col items-center"
+              style={{ bottom: "calc(16.5% - 66px)", right: "71px" }}
+            >
+              <h1 className="tracking-[0.06em] text-center flex flex-col items-center">
+                <span className="text-[128px] leading-none">10+</span>
+                <span className="block h-[40px]" />
+                <span className="text-[48px] leading-[72px]">Projects<br/>Completed</span>
+              </h1>
+            </div>
+          </div>{/* end max-w wrapper */}
         </div>
       </div>
     </div>

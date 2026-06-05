@@ -12,7 +12,8 @@
       "Bash(git merge *)",
       "Bash(git add *)",
       "Bash(ffprobe -v quiet -print_format json -show_streams /Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/Submarine/submarine_section_final.webm)",
-      "Bash(ffprobe -v quiet -print_format json -show_streams /Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/video-editing/Video-editing-section_final.webm)"
+      "Bash(ffprobe -v quiet -print_format json -show_streams /Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/video-editing/Video-editing-section_final.webm)",
+      "Bash(ffprobe -v quiet -print_format json -show_streams /Users/cristiang/Documents/GitHub/tempest-animations/src/assets/Animations/waterfall1/waterfall1_final.webm)"
     ]
   }
 }
