@@ -143,7 +143,7 @@ const GameCarousel = () => {
 
         {/* Carousel Items Container */}
         <div
-          className="relative h-full flex-none w-[284px] md:w-[545px]"
+          className="relative h-full flex-none w-[284px] md:w-full md:overflow-hidden"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
