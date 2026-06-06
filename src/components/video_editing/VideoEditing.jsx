@@ -129,7 +129,7 @@ const VideoEditing = () => {
             initial="hidden"
             animate={titleInView ? "visible" : "hidden"}
             variants={titleVariant}
-            className="font-orbitron flex items-center md:justify-end md:me-8 font-bold text-white text-[26.53px] md:text-[40px] leading-[126%] md:leading-none text-start pt-[46px] ps-[40px] md:ps-0 [text-shadow:_5px_5px_4px_#348CF0] md:[text-shadow:_5px_5px_4px_#348CF0CF]"
+            className="font-orbitron flex items-center md:justify-end md:me-8 font-bold text-white text-[26.53px] lg:text-[40px] leading-[126%] md:leading-none text-start pt-[46px] ps-[40px] md:ps-0 [text-shadow:_5px_5px_4px_#348CF0] md:[text-shadow:_5px_5px_4px_#348CF0CF]"
           >
             <span className="md:hidden">Video Editing & <br /> Post-production</span>
             <span className="hidden md:inline">Real-Time VFX Particle Systems &<br />Materials</span>
@@ -142,17 +142,17 @@ const VideoEditing = () => {
           initial="hidden"
           animate={bubbleControls}
           variants={bubbleVariant}
-          className="absolute right-[120px] md:left-[141px] top-[162px] md:top-auto md:bottom-[48.3%] flex items-center justify-center bg-cover md:w-[262.53px] md:h-[230.53px] w-[135px] h-[130px] bg-no-repeat speech-bubble cursor-pointer"
+          className="absolute right-[120px] md:left-[141px] top-[162px] md:top-auto md:bottom-[48.3%] flex items-center justify-center bg-cover w-[135px] h-[130px] lg:w-[262.53px] lg:h-[230.53px] bg-no-repeat speech-bubble cursor-pointer"
           style={{ backgroundImage: `url(${bubble})` }}>
         >
-          <h2 className="text-[7px] md:text-[14px] md:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
+          <h2 className="text-[7px] lg:text-[14px] lg:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
             <span className="md:hidden">Explore my video editing and post-production portfolio using Adobe Creative Suite, with experience in animation and VFX.</span>
             <span className="hidden md:inline">Explore my video editing and post-production portfolio using Adobe Creative Suite, with animated transitions and VFX.</span>
           </h2>
         </motion.div>
 
-        {/* Cohete mobile */}
-        <div className="md:hidden absolute top-[350px] right-1/2 transform translate-x-1/2">
+        {/* Cohete mobile/tablet */}
+        <div className="lg:hidden absolute flex flex-col items-center" style={{ right: "11.5%", bottom: "92px" }}>
           <div ref={orbitMobileRef} className="relative w-[300px] h-[300px]">
             <motion.div
               initial="hidden"
@@ -184,21 +184,17 @@ const VideoEditing = () => {
               <OrbitalElement key={item.id} item={item} containerSize={orbitMobileSize} isMobile={true} />
             ))}
           </div>
+          <div style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}>
+            <button
+              className="text-white font-rajdhani font-bold text-[20px] leading-none w-[100px] h-[48px] rounded-4xl bg-linear-to-r from-[#3BACE2] from-5% via-[#1270DC] via-75% to-[#4EF5FF] to-[100%] backdrop-blur-3xl transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse cursor-pointer"
+              onClick={openModal}
+            >
+              View
+            </button>
+          </div>
         </div>
 
       </div>{/* end max-w wrapper */}
-
-      <div
-        className="bottom-[82px] md:hidden left-1/2 transform -translate-x-1/2 absolute z-50"
-        style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}
-      >
-        <button
-          className="text-white font-rajdhani font-bold text-[20px] leading-none w-[100px] h-[48px] rounded-4xl bg-linear-to-r from-[#3BACE2] from-5% via-[#1270DC] via-75% to-[#4EF5FF] to-[100%] backdrop-blur-3xl transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse cursor-pointer"
-          onClick={openModal}
-        >
-          View
-        </button>
-      </div>
 
       <CarouselModal isOpen={isModalOpen} onClose={closeModal} />
     </>
@@ -223,9 +219,9 @@ const VideoEditing = () => {
       <div className="absolute inset-0">
         {innerContent}
         {/* Cohete + botón View desktop — contenedor unificado centrado */}
-        <div className="absolute hidden md:flex md:flex-col md:items-center z-50" style={{ right: "11.5%", bottom: "26.2%" }}>
+        <div className="absolute hidden lg:flex lg:flex-col lg:items-center z-50" style={{ right: "11.5%", bottom: "26.2%" }}>
           {/* Cohete con orbitales */}
-          <div ref={orbitRef} className="relative w-[400px] h-[400px]">
+          <div ref={orbitRef} className="relative w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]">
             <motion.div
               ref={rocketViewRef}
               initial="hidden"
@@ -242,7 +238,7 @@ const VideoEditing = () => {
               <img
                 src={rocket}
                 alt="rocket"
-                className="h-[366.67px] w-auto object-cover relative z-10 transition-transform ease-in-out duration-500"
+                className="h-[209px] lg:h-[366.67px] w-auto object-cover relative z-10 transition-transform ease-in-out duration-500"
                 style={{ transform: isRocketHovered ? "rotate(0deg)" : "rotate(25deg)", transformOrigin: "center center", willChange: "transform" }}
               />
               <div className="absolute inset-0 pointer-events-none" style={{ opacity: isRocketHovered ? 1 : 0, transition: "opacity 300ms ease" }}>
@@ -259,7 +255,7 @@ const VideoEditing = () => {
           </div>
           {/* Botón View */}
           <div
-            className="mt-8"
+            className="mt-0"
             style={{ opacity: showButtons ? 1 : 0, transition: "opacity 500ms ease", pointerEvents: showButtons ? "auto" : "none" }}
           >
           <div
@@ -270,7 +266,7 @@ const VideoEditing = () => {
             }}
           >
             <button
-              className="text-white font-rajdhani font-[700] text-[48px] rounded-full px-[63px] py-[4px] animate-pulse cursor-pointer"
+              className="text-white font-rajdhani font-[700] text-[20px] lg:text-[48px] rounded-full px-[20px] lg:px-[63px] py-[4px] animate-pulse cursor-pointer"
               style={{
                 background: "linear-gradient(92.23deg, #32EDFE -2.87%, #3BACE2 36.15%, #1270DC 75.16%, #4EF5FF 114.17%)",
                 backdropFilter: "blur(212px)",
