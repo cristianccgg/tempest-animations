@@ -142,17 +142,17 @@ const VideoEditing = () => {
           initial="hidden"
           animate={bubbleControls}
           variants={bubbleVariant}
-          className="absolute right-[120px] md:left-[141px] top-[162px] md:top-auto md:bottom-[48.3%] flex items-center justify-center bg-cover w-[135px] h-[130px] lg:w-[262.53px] lg:h-[230.53px] bg-no-repeat speech-bubble cursor-pointer"
+          className="absolute right-[120px] md:left-[141px] top-[162px] md:top-auto md:bottom-[calc(48.3%-100px)] lg:bottom-[calc(48.3%-80px)] xl:bottom-[48.3%] flex items-center justify-center bg-cover w-[135px] h-[130px] md:w-[200px] md:h-[175px] lg:w-[262.53px] lg:h-[230.53px] bg-no-repeat speech-bubble cursor-pointer"
           style={{ backgroundImage: `url(${bubble})` }}>
         >
-          <h2 className="text-[7px] lg:text-[14px] lg:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
+          <h2 className="text-[7px] md:text-[11px] md:w-[145px] lg:text-[14px] lg:w-[191px] text-center w-20 text-white font-orbitron leading-[1.5] md:leading-none md:font-bold md:tracking-[0.19em]">
             <span className="md:hidden">Explore my video editing and post-production portfolio using Adobe Creative Suite, with experience in animation and VFX.</span>
             <span className="hidden md:inline">Explore my video editing and post-production portfolio using Adobe Creative Suite, with animated transitions and VFX.</span>
           </h2>
         </motion.div>
 
         {/* Cohete mobile/tablet */}
-        <div className="lg:hidden absolute flex flex-col items-center" style={{ right: "11.5%", bottom: "92px" }}>
+        <div className="lg:hidden absolute flex flex-col items-center" style={{ right: "11.5%", bottom: "52px" }}>
           <div ref={orbitMobileRef} className="relative w-[300px] h-[300px]">
             <motion.div
               initial="hidden"
@@ -219,7 +219,7 @@ const VideoEditing = () => {
       <div className="absolute inset-0">
         {innerContent}
         {/* Cohete + botón View desktop — contenedor unificado centrado */}
-        <div className="absolute hidden lg:flex lg:flex-col lg:items-center z-50" style={{ right: "11.5%", bottom: "26.2%" }}>
+        <div className="absolute hidden lg:flex lg:flex-col lg:items-center z-50 lg:bottom-[calc(26.2%-110px)] xl:bottom-[26.2%]" style={{ right: "11.5%" }}>
           {/* Cohete con orbitales */}
           <div ref={orbitRef} className="relative w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]">
             <motion.div
