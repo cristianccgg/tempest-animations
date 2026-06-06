@@ -134,7 +134,7 @@ const GameCarousel = () => {
     <>
       {/* Mobile: solo tarjeta central + flechas */}
       <div
-        className="flex md:hidden w-full items-center justify-center gap-[14px] h-[300px]"
+        className="flex lg:hidden w-full items-center justify-center gap-[14px] h-[300px]"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -146,32 +146,32 @@ const GameCarousel = () => {
           <img src={carouselArrow} alt="Previous" className="w-[26px] h-[26px] transform rotate-180 transition-transform duration-150 hover:-translate-x-1" />
         </button>
 
-        {/* Active Item mobile */}
-        <div className="flex items-center justify-center w-[284px] h-full">
-          <div className="flex items-center justify-center w-[165px] h-[125px] border-4 border-[#FFFFFF47] rounded-4xl z-20" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.32) -1.52%, rgba(255, 255, 255, 0.0768) 104.35%)", boxShadow: "0px 5.76px 79.2px 0px #00000040" }}>
-            <img src={projects[activeIndex].image} alt={projects[activeIndex].title} className="w-[127px] h-[107px] object-contain image-pulse" />
+        {/* Active Item mobile/tablet */}
+        <div className="flex items-center justify-center w-[284px] md:w-[530px] h-full">
+          <div className="flex items-center justify-center w-[165px] md:w-[279px] h-[125px] md:h-[180px] border-4 border-[#FFFFFF47] rounded-4xl z-20" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.32) -1.52%, rgba(255, 255, 255, 0.0768) 104.35%)", boxShadow: "0px 5.76px 79.2px 0px #00000040" }}>
+            <img src={projects[activeIndex].image} alt={projects[activeIndex].title} className="w-[127px] md:w-[207px] h-[107px] md:h-[174px] object-contain image-pulse" />
           </div>
-          <div className="items-center -ml-[40px] z-10 justify-center w-[159px] h-[125px] border-4 border-[#FFFFFF47] rounded-4xl" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.32) -1.52%, rgba(255, 255, 255, 0.0768) 104.35%)", boxShadow: "0px 5.76px 79.2px 0px #00000040" }}>
-            <div className="flex flex-col h-full pl-[45px]">
-              <div className="flex flex-col h-full justify-evenly gap-3 pe-5 py-2">
+          <div className="items-center -ml-[40px] z-10 justify-center w-[159px] md:w-[306px] h-[125px] md:h-[180px] border-4 border-[#FFFFFF47] rounded-4xl" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.32) -1.52%, rgba(255, 255, 255, 0.0768) 104.35%)", boxShadow: "0px 5.76px 79.2px 0px #00000040" }}>
+            <div className="flex flex-col h-full pl-[45px] md:pl-12">
+              <div className="flex flex-col h-full justify-evenly gap-3 pe-5 py-2 md:py-[24px]">
                 <div className="flex w-full gap-2 items-center">
                   <div className="flex h-fit w-fit">
-                    <img src={avatar} alt="avatar" className="w-[10px] h-[10px] object-contain" />
+                    <img src={avatar} alt="avatar" className="w-[10px] md:w-[30px] h-[10px] md:h-[30px] object-contain" />
                     <img src={check} alt="check-icon" className="w-[5px] h-[5px]" />
                   </div>
                   <div className="text-white font-rajdhani text-nowrap">
-                    <h2 className="text-[7px] font-bold text-wrap leading-tight">"{projects[activeIndex].title}"</h2>
-                    <h3 className="text-[6px] font-semibold text-white">{projects[activeIndex].username}</h3>
+                    <h2 className="text-[7px] md:text-[18px] font-bold text-wrap leading-tight">"{projects[activeIndex].title}"</h2>
+                    <h3 className="text-[6px] md:text-[13px] font-semibold text-white">{projects[activeIndex].username}</h3>
                   </div>
                 </div>
                 <div className="text-white">
-                  <h2 className="text-[7px] font-bold">{projects[activeIndex].description}</h2>
-                  <h3 className="text-[6px] font-rajdhani font-semibold text-white">{projects[activeIndex].details}</h3>
+                  <h2 className="text-[7px] md:text-[12px] font-bold">{projects[activeIndex].description}</h2>
+                  <h3 className="text-[6px] md:text-[12px] font-rajdhani font-semibold text-white">{projects[activeIndex].details}</h3>
                 </div>
-                <button data-view-button="true" onClick={handleViewClick} className="border-2 border-[#1F29AA] w-[38px] ms-auto cursor-pointer relative overflow-hidden transition-transform duration-150 hover:scale-105 active:scale-95 group">
-                  <div className="font-rajdhani flex items-center gap-0 bg-gradient-to-r px-[6px] from-[#1194CA] to-[#375191]">
-                    <span className="font-medium text-white text-[8px]">View</span>
-                    <img src={arrow} alt="arrow" className="w-[8px] object-contain transform transition-transform duration-150 group-hover:translate-x-1" />
+                <button data-view-button="true" onClick={handleViewClick} className="border-2 border-[#1F29AA] w-[38px] md:w-[88px] ms-auto cursor-pointer relative overflow-hidden transition-transform duration-150 hover:scale-105 active:scale-95 group">
+                  <div className="font-rajdhani flex items-center gap-0 md:gap-3 bg-gradient-to-r px-[6px] from-[#1194CA] to-[#375191]">
+                    <span className="font-medium text-white text-[8px] md:text-[20px]">View</span>
+                    <img src={arrow} alt="arrow" className="w-[8px] md:w-[16px] object-contain transform transition-transform duration-150 group-hover:translate-x-1" />
                   </div>
                   <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                 </button>
@@ -189,17 +189,17 @@ const GameCarousel = () => {
       </div>
 
       {/* Desktop: flex con gap exacto */}
-      <div className="hidden md:flex w-full items-center justify-center h-[200px]">
+      <div className="hidden lg:flex w-full items-center justify-center h-[200px]">
         {/* Arrow Left */}
         <button
-          className="flex-shrink-0 text-white rounded-full w-[26px] h-[26px] flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer z-40 mr-[98px]"
+          className="flex-shrink-0 text-white rounded-full w-[26px] h-[26px] flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer z-40 lg:mr-[15px] xl:mr-[98px]"
           onClick={prevSlide}
         >
           <img src={carouselArrow} alt="Previous" className="w-[26px] h-[26px] transform rotate-180 transition-transform duration-150 hover:-translate-x-1" />
         </button>
 
         {/* Previous Item */}
-        <div className="flex-shrink-0 scale-75 hover:scale-80 transition-all duration-200 mr-[60px]">
+        <div className="flex-shrink-0 scale-75 hover:scale-80 transition-all duration-200 lg:mr-[15px] xl:mr-[60px]">
           <div className="flex items-center justify-center backdrop-blur-3xl w-[179px] h-[120px] bg-[#FFFFFF2D] border-4 border-[#FFFFFF47] rounded-4xl hover:border-[#FFFFFF60] transition-all duration-200">
             <img src={projects[getPrevIndex()].image} alt={projects[getPrevIndex()].title} className="w-[177px] h-[167px] object-contain" />
           </div>
@@ -242,7 +242,7 @@ const GameCarousel = () => {
         </div>
 
         {/* Next Item */}
-        <div className="flex-shrink-0 scale-75 hover:scale-80 transition-all duration-200 ml-[60px]">
+        <div className="flex-shrink-0 scale-75 hover:scale-80 transition-all duration-200 lg:ml-[15px] xl:ml-[60px]">
           <div className="flex items-center justify-center backdrop-blur-3xl w-[179px] h-[120px] bg-[#FFFFFF2D] border-4 border-[#FFFFFF47] rounded-4xl hover:border-[#FFFFFF60] transition-all duration-200">
             <img src={projects[getNextIndex()].image} alt={projects[getNextIndex()].title} className="w-[177px] h-[167px] object-contain" />
           </div>
@@ -250,7 +250,7 @@ const GameCarousel = () => {
 
         {/* Arrow Right */}
         <button
-          className="flex-shrink-0 text-white rounded-full w-[26px] h-[26px] flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer z-40 ml-[98px]"
+          className="flex-shrink-0 text-white rounded-full w-[26px] h-[26px] flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer z-40 lg:ml-[15px] xl:ml-[98px]"
           onClick={nextSlide}
         >
           <img src={carouselArrow} alt="Next" className="w-[26px] h-[26px] transition-transform duration-150 hover:translate-x-1" />

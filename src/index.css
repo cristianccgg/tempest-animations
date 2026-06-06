@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 462px;
+}
+
 video::-webkit-media-controls {
   display: none !important;
 }

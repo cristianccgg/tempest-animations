@@ -118,8 +118,7 @@ const GameProgrammingSection = () => {
             initial="hidden"
             animate={carouselControls}
             variants={carouselVariant}
-            className="absolute left-0 w-full flex justify-center"
-            style={{ bottom: "calc(25.8% + 35px)" }}
+            className="absolute left-0 w-full flex justify-center bottom-[200px] md:bottom-[110px] lg:bottom-[calc(25.8%+35px)]"
           >
             <div className="w-full max-w-[1200px]">
               <GameCarousel />
@@ -132,8 +131,7 @@ const GameProgrammingSection = () => {
             initial="hidden"
             animate={titleControls}
             variants={titleVariant}
-            className="font-orbitron font-bold text-white text-[26.53px] md:text-[40px] leading-none md:leading-none text-start ps-[40px] md:ps-0 md:ms-[48px] [text-shadow:_5px_5px_4px_#0A27BB] md:[text-shadow:_5px_5px_4px_#348CF0] absolute h-[100px] flex items-start w-full"
-            style={{ bottom: "calc(25.8% + 200px + 84px + 102px + 75px)" }}
+            className="font-orbitron font-bold text-white text-[26.53px] md:text-[28px] lg:text-[40px] leading-none md:leading-none text-start ps-[40px] md:ps-0 md:ms-[48px] [text-shadow:_5px_5px_4px_#0A27BB] md:[text-shadow:_5px_5px_4px_#348CF0] absolute h-[100px] flex items-start w-full bottom-[561px] md:bottom-[470px] lg:bottom-[calc(25.8%+461px)]"
           >
             <span className="md:hidden">Game Programming</span>
             <span className="hidden md:inline">Gameplay Implementation/Visual Scripting</span>
@@ -145,10 +143,9 @@ const GameProgrammingSection = () => {
             initial="hidden"
             animate={descriptionControls}
             variants={descriptionVariant}
-            className="w-[calc(100%-40px)] md:w-[681px] h-[102px] absolute left-[40px] md:left-auto md:right-[48px]"
-            style={{ bottom: "calc(25.8% + 200px + 84px + 75px - 113px + 75px)" }}
+            className="w-[421px] md:w-[480px] lg:w-[681px] h-[102px] absolute left-[40px] xs:left-auto xs:right-0 md:right-[48px] bottom-[503px] md:bottom-[400px] lg:bottom-[calc(25.8%+291px)]"
           >
-            <h2 className="h-full flex items-center text-white font-rajdhani font-semibold text-[16px] leading-[26px] md:text-[22px] md:leading-[26px] p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-[35px] rounded-l-[35px]" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}>
+            <h2 className="h-full flex items-center text-white font-rajdhani font-semibold text-[16px] leading-[26px] md:text-[16px] md:leading-[22px] lg:text-[22px] lg:leading-[26px] p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-[35px] rounded-l-[35px]" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}>
               <span className="block w-[274px] md:w-auto">Discover my game dev projects developed in Unity, showcasing my skills in game design and programming.</span>
             </h2>
           </motion.div>
