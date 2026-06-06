@@ -146,9 +146,9 @@ const GameProgrammingSection = () => {
             animate={descriptionControls}
             variants={descriptionVariant}
             className="w-[calc(100%-40px)] md:w-[681px] h-[102px] absolute left-[40px] md:left-auto md:right-[48px]"
-            style={{ bottom: "calc(25.8% + 200px + 84px + 75px - 43px + 75px)" }}
+            style={{ bottom: "calc(25.8% + 200px + 84px + 75px - 113px + 75px)" }}
           >
-            <h2 className="h-full flex items-center text-white font-rajdhani font-semibold text-[16px] leading-[26px] md:text-[22px] md:leading-[26px] p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-full rounded-l-[35px]" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}>
+            <h2 className="h-full flex items-center text-white font-rajdhani font-semibold text-[16px] leading-[26px] md:text-[22px] md:leading-[26px] p-7 border-3 border-[#FFFFFF47] border-r-0 md:border-r-3 md:rounded-[35px] rounded-l-[35px]" style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}>
               <span className="block w-[274px] md:w-auto">Discover my game dev projects developed in Unity, showcasing my skills in game design and programming.</span>
             </h2>
           </motion.div>
