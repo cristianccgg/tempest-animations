@@ -90,9 +90,7 @@ const Waterfall2 = () => {
   return (
     <div className="w-full md:h-[1260px] h-[800px] relative overflow-hidden">
       <div
-        className="absolute w-full h-full bg-no-repeat md:bg-cover bg-[length:125%_100%] xl:bg-[length:100%_100%]
-                     md:w-full md:right-0 
-                     sm:right-[-20%]"
+        className="absolute w-full h-full bg-no-repeat bg-[length:125%_100%] bg-center sm:bg-cover sm:bg-center md:bg-[length:100%_100%] md:right-0"
         style={{ backgroundImage: `url(${background})` }}
       ></div>
 

@@ -91,7 +91,7 @@ const MidWaterfall2 = () => {
         {/* Waterfall2 mobile — Web Design Projects */}
         <div className="w-full h-[800px] relative overflow-hidden">
           <div
-            className="absolute w-full h-full bg-no-repeat bg-[length:125%_100%] sm:right-[-20%]"
+            className="absolute w-full h-full bg-no-repeat bg-[length:125%_100%] bg-center"
             style={{ backgroundImage: `url(${bgWaterfall2})` }}
           />
           <motion.div
