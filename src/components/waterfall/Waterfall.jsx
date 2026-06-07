@@ -69,21 +69,20 @@ const Waterfall = () => {
             {/* Grupo izquierdo — TECH Artist */}
             <div
               ref={desktopTextRef}
-              className="absolute text-white font-poppins font-[900] flex flex-col items-center opacity-0 transition-opacity duration-1000 ease-in-out fade-in"
-              style={{ bottom: "16.5%", left: "41px" }}
+              className="absolute text-white font-poppins font-[900] flex flex-col items-center opacity-0 transition-opacity duration-1000 ease-in-out fade-in left-[41px] md:bottom-[calc(16.5%+30px)] xl:bottom-[16.5%]"
             >
-              <h1 className="text-[100px] leading-none tracking-[0.05em] text-center">TECH</h1>
-              <h2 className="text-[80px] leading-none tracking-[0.06em] text-center">Artist</h2>
+              <h1 className="text-[45px] lg:text-[70px] xl:text-[100px] leading-none tracking-[0.05em] text-center">TECH</h1>
+              <h2 className="text-[36px] lg:text-[56px] xl:text-[80px] leading-none tracking-[0.06em] text-center">Artist</h2>
             </div>
             {/* Grupo derecho — 10+ Projects */}
             <div
-              className="absolute text-white font-poppins font-[900] flex flex-col items-center"
-              style={{ bottom: "calc(16.5% - 66px)", right: "71px" }}
+              className="absolute text-white font-poppins font-[900] flex flex-col items-center right-[71px] md:bottom-[calc(16.5%+0px)] xl:bottom-[calc(16.5%-66px)]"
+              style={{ right: "71px" }}
             >
               <h1 className="tracking-[0.06em] text-center flex flex-col items-center">
-                <span className="text-[128px] leading-none">10+</span>
-                <span className="block h-[40px]" />
-                <span className="text-[48px] leading-[72px]">Projects<br/>Completed</span>
+                <span className="text-[60px] lg:text-[90px] xl:text-[128px] leading-none">10+</span>
+                <span className="block h-[10px] lg:h-[20px] xl:h-[40px]" />
+                <span className="text-[22px] lg:text-[34px] xl:text-[48px] leading-[30px] lg:leading-[48px] xl:leading-[72px]">Projects<br/>Completed</span>
               </h1>
             </div>
           </div>{/* end max-w wrapper */}
