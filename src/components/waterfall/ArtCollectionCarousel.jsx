@@ -385,13 +385,13 @@ const ArtCollectionCarousel = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Section Title */}
-      <div className="mb-8 px-6 md:pl-[84px] mt-[70px] md:mt-0 flex flex-col md:flex-row items-center mx-auto max-w-[1360px] justify-between gap-10 md:gap-0">
+      <div className="mb-8 px-6 md:pl-[84px] mt-[70px] md:mt-0 flex flex-col md:flex-row items-center mx-auto max-w-[1360px] justify-between gap-10 md:gap-6">
         <motion.h2
           ref={titleRef}
           initial="hidden"
           animate={titleControls}
           variants={titleVariant}
-          className="order-2 md:order-0 text-[22px] md:text-[36px] font-orbitron font-bold md:font-[900] text-white leading-none md:leading-[52px] md:tracking-[0.05em] flex flex-col md:block mt-[80px] md:mt-0"
+          className="order-2 md:order-0 text-[22px] md:text-[22px] lg:text-[28px] xl:text-[36px] font-orbitron font-bold md:font-[900] text-white leading-none md:leading-[32px] lg:leading-[40px] xl:leading-[52px] md:tracking-[0.05em] flex flex-col md:block mt-[80px] md:mt-0"
           style={{ textShadow: "8px 12px 4px #000000" }}
         >
           <span className="md:hidden">3D Assets & Environments</span>
@@ -402,7 +402,7 @@ const ArtCollectionCarousel = () => {
           initial="hidden"
           animate={subtitleControls}
           variants={subtitleVariant}
-          className="md:max-w-[671px] font-orbitron text-[13px] md:text-[20px] tracking-[0.09em] leading-[162%] font-[900] text-white"
+          className="md:max-w-[671px] font-orbitron text-[13px] md:text-[13px] lg:text-[16px] xl:text-[20px] tracking-[0.09em] leading-[162%] font-[900] text-white"
           style={{ textShadow: "8px 12px 4px #000000" }}
         >
           <span className="md:hidden">Here is work I did as a 3D artist, modeling characters and interior spaces in Maya, while designing environments in Unreal.</span>
@@ -422,12 +422,12 @@ const ArtCollectionCarousel = () => {
           <motion.div
             key={card.id}
             variants={cardVariant}
-            className="border-gray-300/30 overflow-hidden w-full max-w-sm border-2 hover:border-blue-400/40 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20"
-            style={{ width: "390px", height: "490px", background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}
+            className="border-gray-300/30 overflow-hidden border-2 hover:border-blue-400/40 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20 md:w-[190px] md:h-[240px] lg:w-[290px] lg:h-[370px] xl:w-[390px] xl:h-[490px]"
+            style={{ background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1) -1.52%, rgba(255, 255, 255, 0.024) 104.35%)", backdropFilter: "blur(79.2px)" }}
           >
             <div className="p-4 h-full flex flex-col">
-              <div className="flex-grow flex items-center justify-center ">
-                <div className="w-full h-64 rounded-lg flex items-center justify-center">
+              <div className="flex-grow flex items-center justify-center">
+                <div className="w-full md:h-28 lg:h-44 xl:h-64 rounded-lg flex items-center justify-center">
                   <img
                     src={
                       card.id === 1
@@ -441,25 +441,25 @@ const ArtCollectionCarousel = () => {
                   />
                 </div>
               </div>
-              <div className="text-white flex flex-col items-center h-full justify-evenly mb-5">
+              <div className="text-white flex flex-col items-center h-full justify-evenly md:mb-2 lg:mb-5">
                 <div className="flex flex-col items-center">
-                  <h3 className="text-xl font-bold">{card.title}</h3>
-                  <div className="flex items-center mt-2 mb-4">
+                  <h3 className="md:text-xs lg:text-sm xl:text-xl font-bold">{card.title}</h3>
+                  <div className="flex items-center md:mt-1 lg:mt-2 md:mb-2 lg:mb-4">
                     <img
                       src={avatar}
                       alt="Avatar"
-                      className="w-6 h-6 rounded-full mr-2"
+                      className="md:w-4 md:h-4 lg:w-6 lg:h-6 rounded-full mr-2"
                     />
-                    <span style={{ color: "#44A4E3" }}>{card.username}</span>
-                    <img src={check} alt="Verified" className="w-4 h-4 ml-1" />
+                    <span className="md:text-xs lg:text-sm" style={{ color: "#44A4E3" }}>{card.username}</span>
+                    <img src={check} alt="Verified" className="md:w-3 md:h-3 lg:w-4 lg:h-4 ml-1" />
                   </div>
                 </div>
                 <button
                   onClick={() => openModal(card.id)}
-                  className="w-full py-2 px-4 rounded text-white font-medium transition-all duration-200 transform btn-pulse focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 cursor-pointer"
+                  className="w-full py-1 px-4 rounded text-white md:text-xs lg:text-sm font-medium transition-all duration-200 transform btn-pulse focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 cursor-pointer"
                   style={{
                     maxWidth: "209px",
-                    height: "44px",
+                    height: "32px",
                     background:
                       "linear-gradient(92.23deg, #1194CA 50.63%, #4276CB 69.49%, #348CF0 100%, #87A0FF 117.04%)",
                     boxShadow:
