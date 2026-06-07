@@ -456,10 +456,8 @@ const ArtCollectionCarousel = () => {
                 </div>
                 <button
                   onClick={() => openModal(card.id)}
-                  className="w-full py-1 px-4 rounded text-white md:text-xs lg:text-sm font-medium transition-all duration-200 transform btn-pulse focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 cursor-pointer"
+                  className="w-full py-1 px-4 rounded text-white md:text-xs lg:text-sm font-medium transition-all duration-200 transform btn-pulse focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 cursor-pointer md:max-w-[209px] md:h-[32px] xl:w-[209.55px] xl:h-[44.16px]"
                   style={{
-                    maxWidth: "209px",
-                    height: "32px",
                     background:
                       "linear-gradient(92.23deg, #1194CA 50.63%, #4276CB 69.49%, #348CF0 100%, #87A0FF 117.04%)",
                     boxShadow:
